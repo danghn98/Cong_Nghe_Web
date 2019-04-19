@@ -1,0 +1,38 @@
+﻿@model Web_Ban_Giay_2.Models.Tai_Khoan
+
+@{
+    ViewBag.Title = "Details_TK";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+    <div>
+        <h2>Chi Tiết Tài Khoản</h2>
+
+        <div class="ct-sp">
+            <h4>Tài Khoản</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.pass)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.pass)
+                </dd>
+
+            </dl>
+
+            <p>
+                @Html.ActionLink("Sửa", "Edit_TK", new { id = Model.id }) |
+                @Html.ActionLink("Quay lại tài khoản", "Tai_Khoan")
+            </p>
+        </div>
+    </div>

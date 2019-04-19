@@ -1,0 +1,43 @@
+﻿@model Web_Ban_Giay_2.Models.Tai_Khoan
+
+@{
+    ViewBag.Title = "Delete_TK";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+    <div>
+        <h2>Xóa Tài Khoản</h2>
+
+        <div class="xoa-sp">
+            <h4>Tài Khoản</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.pass)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.pass)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Quay lại tài khoản", "Tai_Khoan")
+                </div>
+            }
+        </div>
+    </div>
