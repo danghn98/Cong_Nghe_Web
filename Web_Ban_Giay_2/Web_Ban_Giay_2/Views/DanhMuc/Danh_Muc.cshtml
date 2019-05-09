@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Web_Ban_Giay_2.Models.Danh_Muc>
+
+@{
+    ViewBag.Title = "Danh_Muc";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="width: 81%;">
+        <div class="title-sp">
+            <h2>Danh Mục</h2>
+
+            <button>
+                <p>
+                    @Html.ActionLink("Thêm mới", "Create_DM")
+                </p>
+            </button>
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TenDanhMuc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MoTa)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenDanhMuc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MoTa)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit_DM", new { id = item.Id }) |
+                        @Html.ActionLink("Chi tiết", "Details_DM", new { id = item.Id }) |
+                        @Html.ActionLink("Xóa", "Delete_DM", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

@@ -28,8 +28,8 @@
                 <div class="row w-100">
                     <div class="col-lg-4 mx-auto">
                         <div class="auto-form-wrapper">
-                            <form action="Admin_page" method="post">
-                                <p style="color: red;">@TempData["msg"]</p>
+                            <form action="/Admin/Admin_page" method="post">
+
                                 <div class="form-group">
                                     <label class="label">Tài khoản</label>
                                     <div class="input-group">
@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <p style="color: red;">@TempData["msg"]</p>
                                 <div class="form-group">
                                     <button class="btn btn-primary submit-btn btn-block" type="submit">Đăng nhập</button>
                                 </div>

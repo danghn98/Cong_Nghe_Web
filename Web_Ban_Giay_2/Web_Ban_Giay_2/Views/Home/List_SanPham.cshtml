@@ -1,0 +1,155 @@
+﻿@model PagedList.IPagedList<Web_Ban_Giay_2.Models.Entities.Giay>
+@using PagedList.Mvc;
+@using Web_Ban_Giay_2.Models.Entities;
+@{
+    ViewBag.Title = "List_SanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content -->
+<div id="content">
+
+    <!-- Tabs -->
+    <!-- <div class="tabs">
+        <ul>
+            <li><a href="#" class="active"><span>Safety Shoes</span></a></li>
+            <li><a href="#"><span>Sport Shoes</span></a></li>
+            <li><a href="#" class="red"><span>More Shoes</span></a></li>
+        </ul>
+    </div> -->
+    <!-- Tabs -->
+    <!-- Container -->
+    <div id="container">
+
+        <div class="tabbed-sp">
+
+            <!-- First Tab Content -->
+            <div class="tab-content" style="display:block;">
+
+                <div class="sort">
+                    Sắp xếp :
+                    <select>
+                        <option>Mặc định</option>
+                        <option>Giá tăng dần</option>
+                        <option>Giá giảm dần</option>
+                    </select>
+                </div>
+
+                <div class="items">
+                    <div class="cl">&nbsp;</div>
+                    <ul>
+                        @foreach (var i in Model)
+                        {
+                            <li>
+                                <div class="image">                                   
+                                    <img src="~/Content/images/image1.jpg" alt="" />
+                                </div>
+                                <p>
+                                    <span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span><br />
+                                    Loại Giày : <span>@i.LoaiGiay.Tenloaigiay</span><br />
+                                    Thương Hiệu: <a href="#">@Html.DisplayFor(modelItem => i.NhaSanXuat.Tennhasx)</a>
+                                </p>
+                                <p class="price">Giá bán: <strong>@i.Giaban đ</strong></p>
+                            </li>
+                        }
+                    </ul>
+                    <div class="cl">&nbsp;</div>
+                </div>
+
+                <div class="list-page">
+                    <!-- Thêm mã phân trang -->
+                    <br />
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+                    @Html.PagedListPager(Model, page => Url.Action("List_SanPham",
+                        new { page }))
+                    <!-- Kết thúc -->
+                </div>
+
+            </div>
+            <!-- End First Tab Content -->
+
+            <div class="tab-right">
+                <form>
+                    <h2>Lọc sản phẩm</h2>
+
+                    <button type="submit">Thực hiện lọc</button>
+
+                    <div class="color price-v">
+                        <p>Khoảng giá</p>
+                        <input type="text" name="">đến
+                        <input type="text" name="">
+                    </div>
+
+                    <div class="color">
+                        <p>Màu</p>
+                        @{
+                            using (var db = new ShopModel())
+                            {
+                                var lstMau = db.Maus.ToList();
+
+                                foreach (var i in lstMau)
+                                {
+                                    <li><input type="checkbox" name="">@i.Tenmau</li>
+
+                                }
+                            }
+                        }
+
+                        @*<li><input type="checkbox" name="">Đen</li>
+        <li><input type="checkbox" name="">Trắng</li>
+        <li><input type="checkbox" name="">Đỏ</li>*@
+                    </div>
+
+
+
+                    <div class="color">
+                        <p>Thương hiệu</p>
+
+                        @{
+                            using (var db = new ShopModel())
+                            {
+                                var lstNsx = db.NhaSanXuats.ToList();
+
+                                foreach (var i in lstNsx)
+                                {
+                                    <li><input type="checkbox" name="">@i.Tennhasx</li>
+                                }
+                            }
+                        }
+
+                        @*<li><input type="checkbox" name="">Nike</li>
+                        <li><input type="checkbox" name="">Adidas</li>
+                        <li><input type="checkbox" name="">Bitis</li>*@
+                    </div>
+
+                    <div class="color">
+                        <p>Loại giày</p>
+
+                        @{
+                            using (var db = new ShopModel())
+                            {
+                                var lstLg = db.LoaiGiays.ToList();
+
+                                foreach (var i in lstLg)
+                                {
+                                     <li><input type="checkbox" name="">@i.Tenloaigiay</li>
+                                }
+                            }
+                        }
+
+
+                        @*<li><input type="checkbox" name="">Nam</li>
+                        <li><input type="checkbox" name="">Nữ</li>
+                        <li><input type="checkbox" name="">Trẻ em</li>*@
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- End Container -->
+
+</div>
+<!-- End Content -->

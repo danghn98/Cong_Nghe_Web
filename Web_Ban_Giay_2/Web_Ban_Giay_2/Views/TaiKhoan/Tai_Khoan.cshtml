@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Web_Ban_Giay_2.Models.Tai_Khoan>
+
+@{
+    ViewBag.Title = "Tai_Khoan";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="width: 81%;">
+        <div class="title-sp">
+            <h2>Tài Khoản</h2>
+
+            <button>
+                <p>
+                    @Html.ActionLink("Thêm mới", "Create_TK")
+                </p>
+            </button>
+        </div>
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pass)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pass)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit_TK", new { id = item.id }) |
+                        @Html.ActionLink("Chi tiết", "Details_TK", new { id = item.id }) |
+                        @Html.ActionLink("Xóa", "Delete_TK", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

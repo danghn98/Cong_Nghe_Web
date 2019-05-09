@@ -1,0 +1,43 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.TaiKhoan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+    <div style="margin-left: 15px;">
+        <h2>Xóa Tài Khoản</h2>
+
+        <div class="xoa-sp">
+            <h4>Tài Khoản</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Tên tài khoản
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tentk)
+                </dd>
+
+                <dt>
+                    Mật khẩu
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Matkhau)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Quay lại tài khoản", "Index")
+                </div>
+            }
+        </div>
+    </div>

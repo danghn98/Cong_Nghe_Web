@@ -45,10 +45,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,11 +140,30 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\SanPham_Controller.cs" />
+    <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\TaiKhoan_Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Danh_Muc.cs" />
+    <Compile Include="Models\Entities\ChiTietDonHang.cs" />
+    <Compile Include="Models\Entities\ChiTietMau.cs" />
+    <Compile Include="Models\Entities\ChiTietSize.cs" />
+    <Compile Include="Models\Entities\DonHang.cs" />
+    <Compile Include="Models\Entities\Giay.cs" />
+    <Compile Include="Models\Entities\KhachHang.cs" />
+    <Compile Include="Models\Entities\LoaiGiay.cs" />
+    <Compile Include="Models\Entities\Mau.cs" />
+    <Compile Include="Models\Entities\NhaCungCap.cs" />
+    <Compile Include="Models\Entities\NhaSanXuat.cs" />
+    <Compile Include="Models\Entities\ShopModel.cs" />
+    <Compile Include="Models\Entities\Size.cs" />
+    <Compile Include="Models\Entities\TaiKhoan.cs" />
     <Compile Include="Models\San_Pham.cs" />
     <Compile Include="Models\Tai_Khoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,6 +179,11 @@
     <Content Include="Content\images\cart.gif" />
     <Content Include="Content\images\container-t.gif" />
     <Content Include="Content\images\field.gif" />
+    <Content Include="Content\images\icon_1.png" />
+    <Content Include="Content\images\icon_2.png" />
+    <Content Include="Content\images\icon_3.png" />
+    <Content Include="Content\images\icon_4.png" />
+    <Content Include="Content\images\icon_5.png" />
     <Content Include="Content\images\image1.jpg" />
     <Content Include="Content\images\image2.jpg" />
     <Content Include="Content\images\image3.jpg" />
@@ -300,6 +338,7 @@
     <Content Include="Content\images_admin\logo-mini.svg" />
     <Content Include="Content\images_admin\logo.svg" />
     <Content Include="Content\images_admin\samples\weather.svg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\vendors\ace-builds\src-min\ace.js" />
     <Content Include="Content\vendors\ace-builds\src-min\ext-beautify.js" />
@@ -2117,21 +2156,33 @@
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\Admin_page.cshtml" />
+    <Content Include="Views\Admin\Admin_page.cshtml" />
     <Content Include="Views\Shared\Layout_Admin.cshtml" />
     <Content Include="Views\Shared\Left_Menu_Admin.cshtml" />
-    <Content Include="Views\Home\San_Pham.cshtml" />
-    <Content Include="Views\Home\Tai_Khoan.cshtml" />
-    <Content Include="Views\Home\Create_TK.cshtml" />
-    <Content Include="Views\Home\Edit_TK.cshtml" />
-    <Content Include="Views\Home\Details_TK.cshtml" />
-    <Content Include="Views\Home\Delete_TK.cshtml" />
-    <Content Include="Views\Home\Create_SP.cshtml" />
-    <Content Include="Views\Home\Edit_SP.cshtml" />
-    <Content Include="Views\Home\Details_SP.cshtml" />
-    <Content Include="Views\Home\Delete_SP.cshtml" />
-    <Content Include="Views\Home\Danh_Muc.cshtml" />
-    <Content Include="Views\Home\Edit_DM.cshtml" />
+    <Content Include="Views\SanPham\San_Pham.cshtml" />
+    <Content Include="Views\TaiKhoan\Tai_Khoan.cshtml" />
+    <Content Include="Views\TaiKhoan\Create_TK.cshtml" />
+    <Content Include="Views\TaiKhoan\Edit_TK.cshtml" />
+    <Content Include="Views\TaiKhoan\Details_TK.cshtml" />
+    <Content Include="Views\TaiKhoan\Delete_TK.cshtml" />
+    <Content Include="Views\SanPham\Create_SP.cshtml" />
+    <Content Include="Views\SanPham\Edit_SP.cshtml" />
+    <Content Include="Views\SanPham\Details_SP.cshtml" />
+    <Content Include="Views\SanPham\Delete_SP.cshtml" />
+    <Content Include="Views\DanhMuc\Danh_Muc.cshtml" />
+    <Content Include="Views\DanhMuc\Edit_DM.cshtml" />
+    <Content Include="Views\SanPham_\Create.cshtml" />
+    <Content Include="Views\SanPham_\Delete.cshtml" />
+    <Content Include="Views\SanPham_\Details.cshtml" />
+    <Content Include="Views\SanPham_\Edit.cshtml" />
+    <Content Include="Views\SanPham_\Index.cshtml" />
+    <Content Include="Views\TaiKhoan_\Create.cshtml" />
+    <Content Include="Views\TaiKhoan_\Delete.cshtml" />
+    <Content Include="Views\TaiKhoan_\Details.cshtml" />
+    <Content Include="Views\TaiKhoan_\Edit.cshtml" />
+    <Content Include="Views\TaiKhoan_\Index.cshtml" />
+    <Content Include="Views\Home\List_SanPham.cshtml" />
+    <Content Include="Views\Home\ChiTiet_SP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -73,8 +73,16 @@ D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\An
 D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\System.Diagnostics.DiagnosticSource.xml
 D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\obj\Debug\Web_Ban_Giay_2.csprojAssemblyReference.cache
 D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\obj\Debug\Web_Ban_Giay_2.csproj.CoreCompileInputs.cache
 D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\obj\Debug\Web_Ban_Giay_2.csproj.CopyComplete
 D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\obj\Debug\Web_Ban_Giay_2.dll
 D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\obj\Debug\Web_Ban_Giay_2.pdb
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\EntityFramework.dll
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\EntityFramework.SqlServer.dll
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\EntityFramework.xml
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\EntityFramework.SqlServer.xml
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\PagedList.dll
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\PagedList.Mvc.dll
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\PagedList.xml
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\bin\PagedList.Mvc.xml
+D:\Năm 3 kì 2\Công nghệ web\WebBanGiay\Web_Ban_Giay_2\Web_Ban_Giay_2\obj\Debug\Web_Ban_Giay_2.csprojAssemblyReference.cache

@@ -58,7 +58,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .options { height:47px; white-space:nowrap; padding-top:3px;}
 .options .search{ float:left; padding:6px 0 0 0; background:url(images/border.gif) repeat-y right 0; height:33px; margin-right:12px;}
 .options .search .field{ float:left; width:191px; height:21px; background:url(images/field.gif); padding:6px 5px 0 5px;}
-.options .search .field input{ width:191px; border:0; background:transparent; color:#fff; font-weight: bold;}
+.options .search .field input{ width:191px; border:0; background:transparent; color:#000; font-weight: bold;}
 .search-submit{ float:left; font-size:0; line-height:0; width:24px; height:27px; background:url(images/search.gif); text-indent: -4000px; border:0; margin-left:9px; cursor:pointer; position:relative; top:1px; margin-right:13px;}
 
 .options a { color:#636363; text-decoration: underline;}
@@ -92,13 +92,26 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 
 #container { background:#fff url(images/container-t.gif) no-repeat 0 0; padding:30px 20px 0 20px; }
 
-.items { position:relative; width:960px; margin-right:-20px; padding-bottom:5px; }
-.items ul{ list-style-type: none;}
-.items ul .image{ text-align: center;}
-.items ul li{ float:left; border:dashed 1px #cfcfcf; width:194px; margin:0 18px 12px 0; padding:13px; }
+.items { position:relative; width:100%; margin-right:-20px; padding-bottom:5px; /*min-height: 852px;*/ height: auto;}
+.tabbed-sp .items {
+    min-height: 852px;
+}
+.items ul {
+    list-style-type: none;
+}
+    .items ul .image {
+        text-align: center;
+        width: 194px;
+        height: 150px;
+        margin-bottom: 10px;
+    }
+.items ul li{ float:left; border:solid 1px #cfcfcf; width:194px; margin:0 18px 12px 0; padding:13px; }
 .items ul li p span{ color:#890000}
 .items ul li p.price{ padding-top:15px; }
-.items ul li p.price strong{ color:#890000; font-size:14px;}
+    .items ul li p.price strong {
+        color: #ff6f00;
+        font-size: 14px;
+    }
 
 .brands h3 { padding-bottom:10px;}
 .brands a { margin-right:30px;}
@@ -108,16 +121,279 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 #footer a:hover{ color:#9d0000; }
 #footer span{ padding:0 5px;}
 
-.tab-content { display:none;}
+.tab-content {
+    display: none;
+    float: left;
+    width: 77%;
+}
 
-.tabbed { min-height:420px;}
+.tabbed {
+    min-height: 420px;
+    height: auto;
+}
 
 .brands{
     margin-left:20px;
 }
 
-.foter{
+.foter {
     width: 980px;
     margin: auto;
+    clear: both;
+    padding-top: 20px;
+}
+
+.tab-right {
+    width: 21%;
+    float: left;
+    padding-left: 10px;
+    border-left: 1px solid #ccc;
+    height: 894px;
+}
+
+.fot {
+    margin-left: 20px;
+}
+
+.tab-right h2 {
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-right button {
+    margin: 8px 0 0 15px;
+    height: 22px;
+}
+
+    .tab-right button:hover {
+        background: #e0e0e0;
+    }
+
+.color {
+    margin: 10px 0 20px 15px;
+    width: 175px;
+}
+
+    .color p {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .color li {
+        display: block;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .color input {
+        margin-right: 10px;
+    }
+
+.price-v input {
+    width: 68px;
+    height: 22px;
+    font-size: 13px;
+    margin: 0 3px 0 0;
+}
+
+.sort {
+    font-size: 14px;
+    margin: 7px;
+    font-weight: bold;
+}
+
+    .sort option, .sort select {
+        font-size: 14px;
+        height: 22px;
+    }
+
+.list-page {
+    font-size: 15px;
+    border-top: 1px solid #ccc;
+}
+
+    .list-page li {
+        display: block;
+        float: left;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        margin-right: 1px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .list-page li:hover{
+        background: #ccc;
+    }
+
+    .tabbed-sp{
+        height: 990px;
+    }
+
+.ct-id {
+    width: 960px;
+    height: 600px;
+}
+
+.tabbed-left {
+    width: 71%;
+    float: left;
+    padding: 15px;
+}
+
+.tabbed-right {
+    width: 22%;
+    float: left;
+    border: 1px solid #ccc;
+    padding: 15px 10px;
+    margin-top: 15px;
+}
+
+#container-ct {
+    height: 500px;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.items-ct {
+    width: 300px;
+    height: 220px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.items span a {
+    font-size: 16px;
+    color: #03a9f4;
+}
+
+    .items span a:hover{
+        color: #000;
+    }
+
+    .ct-sp {
+        float: left;
+        width: 350px;
+        padding-left: 40px;
+    }
+
+        .ct-sp h2 {
+            color: #03a9f4;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+    .ct-sp p {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+.ct-color {
+    float: left;
+    margin-right: 12px;
+}
+
+    .ct-color p {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .ct-color select {
+        min-width: 60px;
+        font-size: 14px;
+    }
+
+.buy div {
+    float: left;
+}
+
+.buy {
+    clear: both;
+    padding-top: 15px;
+}
+
+    .buy button {
+        background: #fff;
+        margin-right: 10px;
+        font-size: 18px;
+        border-radius: 20px;
+        padding: 5px 18px;
+        border: 1px solid #adabab;
+    }
+
+        .buy button:hover {
+            background: #ccc;
+        }
+
+        .buy button a {
+            color: #3a3939;
+        }
+
+.decreption {
+    width: 100%;
+    float: none;
+    clear: both;
+    padding-top: 35px;
+}
+
+    .decreption h2 {
+        margin-bottom: 10px;
+        color: #ff6c00;
+    }
+
+.tabbed-right h2 {
+    text-align: center;
+    font-weight: 100;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.tabbed-right li {
+    display: block;
+}
+
+.tabbed-right img {
+    width: 24px;
+    height: 22px;
+    float: left;
+}
+
+.p-side {
+    margin-left: 26px;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.sidebar-1 p {
+    float: left;
+    padding-left: 1px;
+    padding-top: 4px;
+    color: #000;
+}
+
+.amount input {
+    font-size: 15px;
+    width: 45px;
+    height: 28px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.amount p {
+    margin: 19px 30px;
+}
+
+.amount span {
+    color: #ff6f00;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.items ul li p{
+    line-height: 22px;
 }
 

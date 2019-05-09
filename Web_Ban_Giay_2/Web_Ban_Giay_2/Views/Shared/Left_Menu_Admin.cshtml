@@ -1,55 +1,50 @@
 ﻿<!-- partial:partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-        <li class="nav-item nav-profile">
-            <div class="nav-link">
-                <div class="user-wrapper">
-                    <div class="profile-image">
-                        <img src="~/Content/images_admin/faces/face1.jpg" alt="profile image">
-                    </div>
-                    <div class="text-wrapper">
-                        <p class="profile-name">Đăng Chu</p>
-                        <div>
-                            <small class="designation text-muted">Quản lý</small>
-                            <span class="status-indicator online"></span>
-                        </div>
-                    </div>
-                </div>
-                <button class="btn btn-success btn-block">
-                    New Project
-                    <i class="mdi mdi-plus"></i>
-                </button>
-            </div>
-        </li>
+
         <li class="nav-item">
-            <a class="nav-link" href="/Home/Admin_page">
+            <a class="nav-link" href="/Admin/Admin_page">
                 <i class="menu-icon mdi mdi-television"></i>
-                <span class="menu-title">Dashboard</span>
+                <span class="menu-title">Bảng Tin</span>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/Home/San_Pham">
+        <div class="menu1 xt-ct-menu">
+            <div class="xtlab-ctmenu-item">Dropdown 1</div>
+            <div class="xtlab-ctmenu-sub">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+
+        @*<li class="nav-item">
+            <a class="nav-link menu-dm3" href="/DanhMuc/Danh_Muc">
                 <i class="menu-icon "></i>
-                <span class="menu-title">Sản phẩm</span>
+                <span class="menu-title menu-dm1">Danh Mục</span>
+                <div class="menu-dm2">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
             </a>
-        </li>
+        </li>*@
 
         <li class="nav-item">
-            <a class="nav-link" href="/Home/Danh_Muc">
+            <a class="nav-link" href="/SanPham_/Index">
                 <i class="menu-icon "></i>
-                <span class="menu-title">Danh mục</span>
+                <span class="menu-title">Sản Phẩm</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="/Home/Tai_Khoan">
+            <a class="nav-link" href="/TaiKhoan_/Index">
                 <i class="menu-icon far fa-user"></i>
                 <span class="menu-title">Tài Khoản</span>
             </a>
         </li>
 
-        <li class="nav-item">
+        @*<li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon mdi mdi-content-copy"></i>
                 <span class="menu-title">Basic UI Elements</span>
@@ -115,6 +110,42 @@
                     </li>
                 </ul>
             </div>
-        </li>
+        </li>*@
     </ul>
 </nav>
+
+<script type="text/javascript">
+jQuery.fn.extend({
+    setMenu:function () {
+        return this.each(function() {
+            var containermenu = $(this);
+
+            var itemmenu = containermenu.find('.xtlab-ctmenu-item');
+            itemmenu.click(function () {
+                var submenuitem = containermenu.find('.xtlab-ctmenu-sub');
+                submenuitem.slideToggle(500);
+
+            });
+
+            $(document).click(function (e) {
+                if (!containermenu.is(e.target) &&
+                    containermenu.has(e.target).length === 0) {
+                     var isopened =
+                        containermenu.find('.xtlab-ctmenu-sub').css("display");
+
+                     if (isopened == 'block') {
+                         containermenu.find('.xtlab-ctmenu-sub').slideToggle(500);
+                     }
+                }
+            });
+
+
+
+        });
+    },
+
+});
+
+
+$('.xt-ct-menu').setMenu();
+</script>

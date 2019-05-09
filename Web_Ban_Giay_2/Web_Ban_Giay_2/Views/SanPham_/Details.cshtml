@@ -1,0 +1,109 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.Giay
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="margin-left: 15px;">
+        <h2>Chi Tiết Sản Phẩm</h2>
+
+        <div class="ct-sp">
+            <h4>Giày</h4>
+            <hr />
+            <dl class="dl-horizontal">
+
+                <dt>
+                    Tên giày
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tengiay)
+                </dd>
+
+                <dt>
+                    Danh mục
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LoaiGiay.Tenloaigiay)
+                </dd>
+
+                @*<dt>
+                    @Html.DisplayNameFor(model => model.NhaCungCap.Tennhacc)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NhaCungCap.Tennhacc)
+                </dd>*@
+
+                <dt>
+                    Thương hiệu
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NhaSanXuat.Tennhasx)
+                </dd>
+
+
+
+                @*<dt>
+                    @Html.DisplayNameFor(model => model.Soluongton)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Soluongton)
+                </dd>*@
+
+                <dt>
+                    Giá bán
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Giaban)
+                </dd>
+
+                <dt>
+                    Màu
+                </dt>
+
+                <dd>
+                    @foreach (var x in Model.ChiTietMaus)
+                    {
+                        <span>
+                            @x.Mau.Tenmau,
+                        </span>
+                    }
+                    @*@Html.DisplayFor(model => model.Mau)*@
+                </dd>
+
+                <dt>
+                    Size
+                </dt>
+
+                <dd>
+                    @foreach (var x in Model.ChiTietSizes)
+                    {
+                        <span>
+                            @x.Size.Sosize,
+                        </span>
+                    }
+                    @*@Html.DisplayFor(model => model.Size)*@
+                </dd>
+
+                <dt>
+                    Hình ảnh
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Hinhanh)
+                </dd>
+
+            </dl>
+
+            <p>
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.Magiay }) |
+                @Html.ActionLink("Quay lại sản phẩm", "Index")
+            </p>
+        </div>
+        
+    </div>

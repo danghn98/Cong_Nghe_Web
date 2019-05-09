@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Web_Ban_Giay_2.Models.Entities.Giay>
+
+@{
+    ViewBag.Title = "San_Pham";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="width: 81%;">
+        <div class="title-sp">
+            <h2>Sản Phẩm</h2>
+
+            <button>
+                <p>
+                    @Html.ActionLink("Thêm mới", "Create_SP")
+                </p>
+            </button>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>
+                    Tên Giày
+                </th>
+                <th>
+                    Số Lượng
+                </th>
+                <th>
+                    Danh Mục
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tengiay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiGiay.Tenloaigiay)
+            </td>
+            <td>
+            @Html.ActionLink("Sửa", "Edit_SP", new { id = item.Magiay }) |
+            @Html.ActionLink("Chi Tiết", "Details_SP", new { id = item.Magiay }) |
+            @Html.ActionLink("Xóa", "Delete_SP", new { id = item.Magiay })
+        </td>
+        </tr>
+            }
+
+        </table>
+    </div>

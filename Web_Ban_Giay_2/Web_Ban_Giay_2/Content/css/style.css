@@ -8432,12 +8432,14 @@ pre {
     margin-left: 91.66667%; } }
 
 .table {
-    margin-bottom: 70px !important;
-  margin-top:75px;
-  width: 63%;
-  max-width: 63%;
+    /*margin-bottom: 70px !important;*/
+  margin-top:30px;
+  width: 98%;
+  max-width: 98%;
   margin-bottom: 1rem;
-  background-color: transparent; }
+  background-color: transparent;
+  margin-left: 15px;
+}
   .table th,
   .table td {
     padding: 18px 30px;
@@ -8658,7 +8660,7 @@ pre {
     background-color: transparent;
     border: 0; }
   .form-control:focus {
-    color: #495057;
+    color: #000;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
@@ -13680,16 +13682,17 @@ input:focus {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 63px);
-  background: #ffffff;
-  font-family: "Poppins", sans-serif;
-  padding: 0;
-  width: 255px;
-  z-index: 11;
-  transition: width 0.25s ease, background 0.25s ease;
-  -webkit-transition: width 0.25s ease, background 0.25s ease;
-  -moz-transition: width 0.25s ease, background 0.25s ease;
-  -ms-transition: width 0.25s ease, background 0.25s ease; }
+    min-height: calc(100vh - 63px);
+    background: #3e3e3e;
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    width: 255px;
+    z-index: 11;
+    transition: width 0.25s ease, background 0.25s ease;
+    -webkit-transition: width 0.25s ease, background 0.25s ease;
+    -moz-transition: width 0.25s ease, background 0.25s ease;
+    -ms-transition: width 0.25s ease, background 0.25s ease;
+}
   .sidebar .nav {
     overflow: hidden;
     flex-wrap: nowrap;
@@ -13705,7 +13708,7 @@ input:focus {
       padding: 16px 35px;
       white-space: nowrap;
       height: 52px;
-      color: #4a4a4a; }
+      color: #fff; }
       .sidebar .nav .nav-item .nav-link i.menu-arrow {
         margin-left: auto;
         margin-right: 0;
@@ -13871,20 +13874,22 @@ input:focus {
 
 /* Navbar */
 .navbar.default-layout {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(120deg, #00e4d0, #5983e8);
-  transition: background 0.25s ease;
-  -webkit-transition: background 0.25s ease;
-  -moz-transition: background 0.25s ease;
-  -ms-transition: background 0.25s ease; }
-  .navbar.default-layout .navbar-brand-wrapper {
-    transition: width 0.25s ease, background 0.25s ease;
-    -webkit-transition: width 0.25s ease, background 0.25s ease;
-    -moz-transition: width 0.25s ease, background 0.25s ease;
-    -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #ffffff;
-    width: 255px;
-    height: 63px; }
+    font-family: "Poppins", sans-serif;
+    background: #14ced6;
+    transition: background 0.25s ease;
+    -webkit-transition: background 0.25s ease;
+    -moz-transition: background 0.25s ease;
+    -ms-transition: background 0.25s ease;
+}
+    .navbar.default-layout .navbar-brand-wrapper {
+        transition: width 0.25s ease, background 0.25s ease;
+        -webkit-transition: width 0.25s ease, background 0.25s ease;
+        -moz-transition: width 0.25s ease, background 0.25s ease;
+        -ms-transition: width 0.25s ease, background 0.25s ease;
+        background: #14ced6;
+        width: 255px;
+        height: 63px;
+    }
     .sidebar-dark .navbar.default-layout .navbar-brand-wrapper {
       background: #161a27; }
     .navbar.default-layout .navbar-brand-wrapper .navbar-brand {
@@ -13997,7 +14002,9 @@ input:focus {
       width: 75px; }
       .navbar.default-layout .navbar-brand-wrapper .brand-logo {
         display: none; }
-      .navbar.default-layout .navbar-brand-wrapper .brand-logo-mini {
+      
+      
+      .brand-logo-mini {
         display: inline-block; }
   .navbar-collapse {
     display: flex;
@@ -15675,7 +15682,7 @@ pre {
     border-color: #f2f2f2; }
 
 .form-control {
-  border: 1px solid #f2f2f2;
+  border: 1px solid #ccc;
   font-family: "Poppins", sans-serif;
   font-size: 0.75rem;
   padding: 0.56rem 0.75rem;
@@ -15700,7 +15707,9 @@ select.form-control {
 .form-group label {
   font-size: 13px;
   line-height: 1;
-  vertical-align: top; }
+  vertical-align: top;
+  min-width: 200px;
+}
 
 .form-group.has-danger .form-control {
   border-color: #e65251; }
@@ -16312,9 +16321,9 @@ button p {
 }
 
 .form-horizontal{
-    margin-top: 65px;
+    margin-top: 30px;
     min-width: 400px;
-    margin-left: 180px;
+    margin-left: 150px;
 }
 
 .create-sp {
@@ -16322,13 +16331,15 @@ button p {
 }
 
 .xoa-sp{
-    margin-top: 65px;
-    margin-left: 180px;
+    width: 500px;
+    margin-top: 30px;
+    margin-left: 150px;
 }
 
 .ct-sp {
-    margin-top: 65px;
-    margin-left: 180px;
+    width: 500px;
+    margin-top: 30px;
+    margin-left: 150px;
 }
 
 .table tr {
@@ -16344,3 +16355,79 @@ div button a:hover {
     text-decoration: none;
     color: #00ce68;
 }
+
+.title-sp{
+    margin-left: 15px;
+}
+
+.ct-sp p{
+    margin-top: 40px;
+}
+
+.dl-horizontal dt{
+    float: left;
+    min-width: 200px;
+}
+
+.xoa-sp form{
+    margin-top: 40px;
+}
+
+.pagination-container li {
+    padding: 3px 10px;
+    border: 1px solid #ccc;
+    margin-right: 1px;
+}
+
+.pagination-container li:hover{
+    background: #14ced6;
+}
+
+.text-danger{
+    font-size: 13px;
+}
+
+.col-md-10{
+    font-size: 12px;
+}
+
+a.nav-link:focus {
+    background: #fafbfc;
+}
+
+.xt-ct-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.xtlab-ctmenu-item {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+    .xtlab-ctmenu-item:hover, .xtlab-ctmenu-item:focus {
+        background-color: #9c3328;
+    }
+
+.xtlab-ctmenu-sub {
+    display: none;
+    position: absolute;
+    background-color: #3e8e41;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+    .xtlab-ctmenu-sub a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .xtlab-ctmenu-sub a:hover {
+            background-color: orange;
+            border: none;
