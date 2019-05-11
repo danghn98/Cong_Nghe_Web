@@ -23,8 +23,6 @@ namespace Web_Ban_Giay_2.Models.Entities
 
         public decimal? Dongia { get; set; }
 
-        public decimal? Thanhtien { get; set; }
-
         public virtual Giay Giay { get; set; }
 
         public virtual DonHang DonHang { get; set; }

@@ -1,0 +1,81 @@
+﻿@using Web_Ban_Giay_2.Models.Entities;
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Shopping_Cart cart = (Shopping_Cart)Session["cart"];
+    List<Item> lst = new List<Item>();
+    if (cart != null)
+    {
+        lst = cart.lst;
+    }
+
+}
+
+    <div id="content-ct">
+
+        <!-- Tabs -->
+        <!-- <div class="tabs">
+        <ul>
+            <li><a href="#" class="active"><span>Safety Shoes</span></a></li>
+            <li><a href="#"><span>Sport Shoes</span></a></li>
+            <li><a href="#" class="red"><span>More Shoes</span></a></li>
+        </ul>
+    </div> -->
+        <!-- Tabs -->
+        <!-- Container -->
+        <div id="container-ct">
+
+            <div class="tabbed-left-cart">
+
+                <h2>Giỏ Hàng</h2>
+
+                <div style="float: right; margin-bottom: 6px;"><input style="padding: 5px;" type="submit" value="Cập nhật giỏ hàng" /></div>
+
+                <table>
+
+                    <tr>
+                        <td class="name">Tên sản phẩm</td>
+                        <td class="color">Màu</td>
+                        <td class="size">Size</td>
+                        <td class="amount">Số lượng</td>
+                        <td class="price">Giá</td>
+                        <td class="total-price">Tổng tiền</td>
+                        <td style="width: 27px;"></td>
+                        <!-- <td><a href="/ShoppingCart/Update/">Sua so luong</a></td>
+            -->
+                    </tr>
+
+                    @{
+
+                        foreach (var item in lst)
+                        {
+                            var tprice = item.amount * item.price;
+                            <tr>
+                                <td>@item.name</td>
+                                <td>@item.color@*.FirstOrDefault()*@</td>
+                                <td>@item.size@*.FirstOrDefault()*@</td>
+                                <td><input type="number" value="@item.amount" /></td>
+                                <td>@item.price.ToString("N0") đ</td>
+                                <td>@tprice.ToString("N0") đ</td>
+                                <td style="padding: 0 5px;"><a href="/ShoppingCart/Remove/@item.id">Xoá</a></td>
+                                @*<td><a href="/ShoppingCart/Update?id=@Model.Magiay&amount=@Model.amount">Sua</a></td>*@
+                            </tr>
+                        }
+                    }
+                </table>
+
+                <div style="margin-top: 15px;"><input style="padding: 6px;" type="submit" value="Tiến hành thanh toán" /></div>
+
+
+            </div>
+            <!-- End Container -->
+
+            @RenderPage("~/Views/Shared/Slogan.cshtml")
+
+        </div>
+        <!-- End Content -->
+
+    </div>
+

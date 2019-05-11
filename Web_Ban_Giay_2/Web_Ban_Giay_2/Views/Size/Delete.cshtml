@@ -1,0 +1,34 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.Size
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="margin-left: 15px;">
+        <h2>Xóa Size</h2>
+
+        <div class="xoa-sp">
+            <h4>Size</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Số size
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Sosize)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Quay lại size", "Index")
+                </div>
+            }
+        </div>
+    </div>

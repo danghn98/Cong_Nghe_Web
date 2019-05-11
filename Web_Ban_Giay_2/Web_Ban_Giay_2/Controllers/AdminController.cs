@@ -18,25 +18,37 @@ namespace Web_Ban_Giay_2.Controllers
             string us = Request.Form["us"];
             string mk = Request.Form["mk"];
 
-            var lst = db.TaiKhoans.ToList();
-
-            
-                string u = "admin";
-                string m = "123";
-
-                if (u.Equals(us) && m.Equals(mk))
+            foreach (var i in db.TaiKhoans)
+            { 
+                if (i.Tentk.ToString().Equals(us) && i.Matkhau.ToString().Equals(mk) )
                 {
-                    //TempData["msg"] = "Dang nhap thanh cong";
                     Session["username"] = us;
                     return View();
                 }
-                else
-                {
-                    TempData["msg"] = "Tài khoản hoặc mật khẩu không chính xác !";
-                    return View("~/Views/Home/Login.cshtml");
+            }
+            TempData["msg"] = "Tài khoản hoặc mật khẩu không chính xác !";
+            return View("~/Views/Admin/Login.cshtml");
 
-                }
-            
+
+            //var lst = db.TaiKhoans.ToList();
+
+
+            //    string u = "admin";
+            //    string m = "123";
+
+            //    if (u.Equals(us) && m.Equals(mk))
+            //    {
+            //        //TempData["msg"] = "Dang nhap thanh cong";
+            //        Session["username"] = us;
+            //        return View();
+            //    }
+            //    else
+            //    {
+            //        TempData["msg"] = "Tài khoản hoặc mật khẩu không chính xác !";
+            //        return View("~/Views/Home/Login.cshtml");
+
+            //    }
+
 
             //return View();
         }
@@ -48,5 +60,16 @@ namespace Web_Ban_Giay_2.Controllers
         //    else
         //        return View();
         //}
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public ActionResult Logout()
+        {
+            Session["username"] = null;
+            return View("~/Views/Admin/Login.cshtml");
+        }
     }
+
+
 }

@@ -1,0 +1,76 @@
+﻿@model List<Web_Ban_Giay_2.Models.Entities.CartItem>
+@*@using Web_Ban_Giay_2.Models.Entities*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+
+    <script src="~/Scripts/js/cartController.js"></script>
+}
+
+<div id="content-ct">
+
+    <!-- Tabs -->
+    <!-- <div class="tabs">
+        <ul>
+            <li><a href="#" class="active"><span>Safety Shoes</span></a></li>
+            <li><a href="#"><span>Sport Shoes</span></a></li>
+            <li><a href="#" class="red"><span>More Shoes</span></a></li>
+        </ul>
+    </div> -->
+    <!-- Tabs -->
+    <!-- Container -->
+    <div id="container-ct">
+
+        <div class="tabbed-left-cart">
+
+            <h2>Giỏ Hàng</h2>
+
+            <table>
+
+                <tr>
+                    <td class="name">Tên sản phẩm</td>
+                    <td class="color">Màu</td>
+                    <td class="size">Size</td>
+                    <td class="amount">Số lượng</td>
+                    <td class="price">Giá</td>
+                    <td></td>
+                    <!-- <td><a href="/ShoppingCart/Update/">Sua so luong</a></td>
+            -->
+                </tr>
+
+                @{
+
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Product.Tengiay</td>
+                            <td>@*@item.Product.ChiTietMaus.Select(x=>x.Mau).Select(y=>y.Tenmau)*@</td>
+                            <td>@*@item.Product.ChiTietSizes.Select(x => x.Size).Select(y=>y.Sosize)*@</td>
+                            <td><input type="number" value="@item.Quantity" /></td>
+                            <td>@item.Product.Giaban đ</td>
+                            <td><a href="/Cart/Delete/@item.Product.Magiay">Xoá</a></td>
+                            <!-- <td><a href="/ShoppingCart/Update/">Sua so luong</a></td> -->
+                        </tr>
+                    }
+                }
+            </table>
+
+            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+            <button id="btnPayment" class="btn">Thanh toán</button>
+
+        </div>
+        <!-- End Container -->
+
+        @RenderPage("~/Views/Shared/Slogan.cshtml")
+
+    </div>
+    <!-- End Content -->
+
+</div>
+
+
+

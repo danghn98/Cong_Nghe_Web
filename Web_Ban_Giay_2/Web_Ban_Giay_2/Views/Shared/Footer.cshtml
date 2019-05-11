@@ -5,29 +5,29 @@
     <div class="brands">
         <h3>Brands</h3>
         <div class="logos">
-            <a href="#"><img src="~/Content/images/logo1.gif" alt="" /></a>
-            <a href="#"><img src="~/Content/images/logo2.gif" alt="" /></a>
-            <a href="#"><img src="~/Content/images/logo3.gif" alt="" /></a>
-            <a href="#"><img src="~/Content/images/logo4.gif" alt="" /></a>
-            <a href="#"><img src="~/Content/images/logo5.gif" alt="" /></a>
+            <img src="~/Content/images/logo1.gif" alt="" />
+            <img src="~/Content/images/logo2.gif" alt="" />
+            <img src="~/Content/images/logo3.gif" alt="" />
+            <img src="~/Content/images/logo4.gif" alt="" />
+            <img src="~/Content/images/logo5.gif" alt="" />
         </div>
     </div>
     <!-- End Brands -->
     <!-- Footer -->
     <div id="footer">
         <div class="left">
-            <a href="#">Trang chủ</a>
+            @Html.ActionLink("Trang chủ", "Index", "Home")
             <span>|</span>
-            <a href="#">Hỗ trợ</a>
+            @Html.ActionLink("Giới thiệu", "GioiThieu", "Home")
             <span>|</span>
-            <a href="#">Tài khoản</a>
+            @Html.ActionLink("Cửa hàng", "List_SanPham", "Home")
             <span>|</span>
-            <a href="#">Cửa hàng</a>
+            @Html.ActionLink("Tài khoản", "Login", "Admin")
             <span>|</span>
-            <a href="#">Liên hệ</a>
+            @Html.ActionLink("Liên hệ", "LienHe", "Home")
         </div>
         <div class="right">
-            &copy; Copyright <a href="http://chocotemplates.com" target="_blank" title="CSS Templates">BestShose.com</a>
+            &copy; Copyright <a href="#" target="_blank" title="CSS Templates">BestShose.com</a>
         </div>
     </div>
 </div>

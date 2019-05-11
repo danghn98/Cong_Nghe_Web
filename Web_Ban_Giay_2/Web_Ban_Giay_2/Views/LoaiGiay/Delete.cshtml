@@ -1,0 +1,34 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.LoaiGiay
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="margin-left: 15px;">
+        <h2>Xóa Loại Giày</h2>
+
+        <div class="xoa-sp">
+            <h4>Loại Giày</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tenloaigiay)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tenloaigiay)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Quay lại loại giày", "Index")
+                </div>
+            }
+        </div>
+    </div>

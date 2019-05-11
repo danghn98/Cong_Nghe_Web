@@ -45,14 +45,14 @@
                                         count++;
                                     <li>
                                         <div class="image">
-                                            <img src="~/Content/images/image1.jpg" alt="" />
+                                            <a href="~/Home/ChiTiet_SP/@i.Magiay"><img src="~/Content/img_product/@i.Hinhanh" alt="" /></a>
                                         </div>
                                         <p>
-                                            <span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span><br />
+                                        <p style="min-height: 44px;"><span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span></p><br />
                                             Loại Giày : <span>@i.LoaiGiay.Tenloaigiay</span><br />
                                             Thương Hiệu: <a href="#">@Html.DisplayFor(modelItem => i.NhaSanXuat.Tennhasx)</a>
                                         </p>
-                                        <p class="price">Giá bán: <strong>@i.Giaban đ</strong></p>
+                                        <p class="price">Giá bán: <strong>@i.Giaban.GetValueOrDefault(0).ToString("N0") đ</strong></p>
                                     </li>
                                         if (count == 8)
                                         { 
@@ -83,10 +83,10 @@
                                         count++;
                                         <li>
                                             <div class="image">
-                                                <img src="~/Content/images/image1.jpg" alt="" />
+                                                <a href="~/Home/ChiTiet_SP/@i.Magiay"><img src="~/Content/img_product/@i.Hinhanh" alt="" /></a>
                                             </div>
                                             <p>
-                                                <span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span><br />
+                                                <p style="min-height: 44px;"><span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span></p><br />
                                                 Loại Giày : <span>@i.LoaiGiay.Tenloaigiay</span><br />
                                                 Thương Hiệu: <a href="#">@Html.DisplayFor(modelItem => i.NhaSanXuat.Tennhasx)</a>
                                             </p>
@@ -121,10 +121,10 @@
                                         count++;
                                         <li>
                                             <div class="image">
-                                                <img src="@i.Hinhanh" alt="" />
+                                                <a href="~/Home/ChiTiet_SP/@i.Magiay"><img src="~/Content/img_product/@i.Hinhanh" alt="" /></a>
                                             </div>
                                             <p>
-                                                <span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span><br />
+                                                <p style="min-height: 44px;"><span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span></p><br />
                                                 Loại Giày : <span>@i.LoaiGiay.Tenloaigiay</span><br />
                                                 Thương Hiệu: <a href="#">@Html.DisplayFor(modelItem => i.NhaSanXuat.Tennhasx)</a>
                                             </p>

@@ -1,0 +1,67 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.DonHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DonHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.Tenkh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.Tenkh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tendh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tendh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaydat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaydat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaygiao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaygiao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tinhtranggh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tinhtranggh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dathanhtoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dathanhtoan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Madh }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,27 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.Size
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Size</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sosize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sosize)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Masize }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

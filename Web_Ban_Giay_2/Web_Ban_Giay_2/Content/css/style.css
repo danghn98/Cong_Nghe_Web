@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------
+﻿/*------------------------------------------------------------------
  [Master Stylesheet]
 
   Project:	Star Admin Bootstrap Template [Free Version]
@@ -8442,7 +8442,7 @@ pre {
 }
   .table th,
   .table td {
-    padding: 18px 30px;
+    padding: 18px 18px;
     vertical-align: top;
     border-top: 1px solid #ccc; }
   .table thead th {
@@ -13694,6 +13694,7 @@ input:focus {
     -ms-transition: width 0.25s ease, background 0.25s ease;
 }
   .sidebar .nav {
+      height: 100%;
     overflow: hidden;
     flex-wrap: nowrap;
     flex-direction: column; }
@@ -16321,6 +16322,7 @@ button p {
 }
 
 .form-horizontal{
+    width: 80%;
     margin-top: 30px;
     min-width: 400px;
     margin-left: 150px;
@@ -16395,39 +16397,155 @@ a.nav-link:focus {
     background: #fafbfc;
 }
 
-.xt-ct-menu {
+.cont {
+    width: 100%;
+}
+/* Dropdown Button */
+.dropbtn {
+    background-color: #3e3e3e;
+    color: white;
+    padding: 17px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding-left: 70px;
+}
+
+    /* ĐỔi màu nền khi hover và focus Dropdown button */
+    .dropbtn:hover, .dropbtn:focus {
+        background: #fafbfc;
+        color: #3d3d3d;
+    }
+
+/* Định dạng các thẻ bao bọc các menu */
+.cont .dropdown {
+    width: 100%;
     position: relative;
     display: inline-block;
 }
 
-.xtlab-ctmenu-item {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-    .xtlab-ctmenu-item:hover, .xtlab-ctmenu-item:focus {
-        background-color: #9c3328;
-    }
-
-.xtlab-ctmenu-sub {
+/* Dropdown Content, mặc định sẽ được ẩn đi */
+.dropdown-content {
     display: none;
     position: absolute;
-    background-color: #3e8e41;
+    background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 55px;
 }
 
-    .xtlab-ctmenu-sub a {
-        color: white;
+    /* Định dạng các thẻ a là các menu con */
+    .dropdown-content a {
+        color: #3d3d3d;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
+        font-size: 12px;
     }
 
-        .xtlab-ctmenu-sub a:hover {
-            background-color: orange;
-            border: none;
+        /* Thay đổi màu nền khi các menu con được hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+/* Hiển thị menu, ta sẽ dùng javascript để thêm class này vào các nôi dung cần được hiển thị */
+.show {
+    display: block;
+}
+
+.navbar-nav button {
+    background-color: #14ced6;
+    padding-left: 17px;
+}
+
+    .navbar-nav button:hover {
+        background: #13b4bb;
+        color: white;
+    }
+
+.navbar-nav #laptrinhs{
+    margin-left: 10px;
+}
+
+.conts {
+    width: 100%;
+}
+/* Dropdown Button */
+.dropbtns {
+    background-color: #3e3e3e;
+    color: white;
+    padding: 17px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding-left: 70px;
+}
+
+    /* ĐỔi màu nền khi hover và focus Dropdown button */
+    .dropbtns:hover, .dropbtns:focus {
+        background: #fafbfc;
+        color: #3d3d3d;
+    }
+
+/* Định dạng các thẻ bao bọc các menu */
+.conts .dropdowns {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content, mặc định sẽ được ẩn đi */
+.dropdown-contents {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 55px;
+}
+
+    /* Định dạng các thẻ a là các menu con */
+    .dropdown-contents a {
+        color: #3d3d3d;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 12px;
+    }
+
+        /* Thay đổi màu nền khi các menu con được hover */
+        .dropdown-contents a:hover {
+            background-color: #f1f1f1
+        }
+
+/* Hiển thị menu, ta sẽ dùng javascript để thêm class này vào các nôi dung cần được hiển thị */
+.shows {
+    display: block;
+}
+
+.danhmuc table{
+    width: 50%;
+    float: left;
+}
+
+.bill th, .bill td{
+    padding: 18px 20px !important;
+}
+
+.form-group img{
+    width: 275px;
+}
+
+.description input{
+    height: 300px;
+}
+
+.table tr:hover {
+    background: #efeded;
+}

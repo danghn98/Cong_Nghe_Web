@@ -20,11 +20,8 @@ namespace Web_Ban_Giay_2.Controllers
             return View(db.Giays.ToList());
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
-
+        
+        
         public ActionResult List_SanPham(int? page)
         {
             // 1. Tham số int? dùng để thể hiện null và kiểu int
@@ -48,6 +45,31 @@ namespace Web_Ban_Giay_2.Controllers
             return View(links.ToPagedList(pageNumber, pageSize));
         }
 
+        public ActionResult Filter(int? page, string loaigiay, string thuonghieu)
+        {
+            
+            if (page == null) page = 1;
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            var lst = db.Giays.ToList();
+
+            if (thuonghieu == "0")
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(x => x.LoaiGiay.Tenloaigiay == loaigiay).ToList();
+            }
+            else if (loaigiay == "0")
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).ToList();
+            }
+            else
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(x => x.LoaiGiay.Tenloaigiay == loaigiay).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).ToList();
+            }
+            
+            return View("List_SanPham",lst.ToPagedList(pageNumber, pageSize));
+        }
+
         public ActionResult ChiTiet_SP(int? id)
         {
             if (id == null)
@@ -61,5 +83,16 @@ namespace Web_Ban_Giay_2.Controllers
             }
             return View(giay);
         }
+
+        public ActionResult LienHe()
+        {
+            return View();
+        }
+
+        public ActionResult GioiThieu()
+        {
+            return View();
+        }
+
     }
 }

@@ -1,0 +1,85 @@
+﻿@*@model IEnumerable<Web_Ban_Giay_2.Models.Entities.DonHang>*@
+
+@model PagedList.IPagedList<Web_Ban_Giay_2.Models.Entities.DonHang>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="width: 81%;">
+        <div class="title-sp">
+            <h2>Đơn Hàng</h2>
+
+            <button>
+                <p>
+                    @Html.ActionLink("Thêm mới", "Create")
+                </p>
+            </button>
+        </div>
+        <table class="table bill">
+            <tr>
+                <th>
+                    Tên đơn hàng
+                </th>
+                <th>
+                    Tên khách hàng
+                </th>
+
+                <th>
+                    Ngày đặt
+                </th>
+                <th>
+                    Ngày giao
+                </th>
+                <th>
+                    Tình trạng giao
+                </th>
+                <th>
+                    Thanh toán
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tendh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KhachHang.Tenkh)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ngaydat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ngaygiao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tinhtranggh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dathanhtoan)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Madh }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.Madh }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Madh })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <div style="margin-left:15px; margin-bottom:40px;">
+            <!-- Thêm mã phân trang -->
+            <br />
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+                new { page }))
+            <!-- Kết thúc -->
+        </div>
+    </div>

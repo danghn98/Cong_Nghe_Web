@@ -36,6 +36,9 @@ namespace Web_Ban_Giay_2.Models.Entities
         [StringLength(50)]
         public string Hinhanh { get; set; }
 
+        [StringLength(4000)]
+        public string Mota { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
 

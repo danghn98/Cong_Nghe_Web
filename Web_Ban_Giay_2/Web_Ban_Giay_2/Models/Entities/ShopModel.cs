@@ -8,7 +8,7 @@ namespace Web_Ban_Giay_2.Models.Entities
     public partial class ShopModel : DbContext
     {
         public ShopModel()
-            : base("name=ShopModel6")
+            : base("name=ShopModel8")
         {
         }
 
@@ -17,7 +17,6 @@ namespace Web_Ban_Giay_2.Models.Entities
         public virtual DbSet<ChiTietSize> ChiTietSizes { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
         public virtual DbSet<Giay> Giays { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<LoaiGiay> LoaiGiays { get; set; }
         public virtual DbSet<Mau> Maus { get; set; }
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
@@ -31,9 +30,13 @@ namespace Web_Ban_Giay_2.Models.Entities
                 .Property(e => e.Dongia)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<ChiTietDonHang>()
-                .Property(e => e.Thanhtien)
-                .HasPrecision(18, 0);
+            modelBuilder.Entity<DonHang>()
+                .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<DonHang>()
+                .Property(e => e.Sdt)
+                .IsUnicode(false);
 
             modelBuilder.Entity<DonHang>()
                 .HasMany(e => e.ChiTietDonHangs)
@@ -58,14 +61,6 @@ namespace Web_Ban_Giay_2.Models.Entities
                 .HasMany(e => e.ChiTietSizes)
                 .WithRequired(e => e.Giay)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Taikhoan)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KhachHang>()
-                .Property(e => e.Sst)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Mau>()
                 .HasMany(e => e.ChiTietMaus)

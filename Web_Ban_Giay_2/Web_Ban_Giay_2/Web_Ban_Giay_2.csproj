@@ -141,11 +141,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\ChiTietMauController.cs" />
+    <Compile Include="Controllers\DonHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoaiGiayController.cs" />
+    <Compile Include="Controllers\MauController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
-    <Compile Include="Controllers\SanPham_Controller.cs" />
-    <Compile Include="Controllers\TaiKhoanController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Controllers\TaiKhoan_Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,7 +159,6 @@
     <Compile Include="Models\Entities\ChiTietSize.cs" />
     <Compile Include="Models\Entities\DonHang.cs" />
     <Compile Include="Models\Entities\Giay.cs" />
-    <Compile Include="Models\Entities\KhachHang.cs" />
     <Compile Include="Models\Entities\LoaiGiay.cs" />
     <Compile Include="Models\Entities\Mau.cs" />
     <Compile Include="Models\Entities\NhaCungCap.cs" />
@@ -164,6 +166,8 @@
     <Compile Include="Models\Entities\ShopModel.cs" />
     <Compile Include="Models\Entities\Size.cs" />
     <Compile Include="Models\Entities\TaiKhoan.cs" />
+    <Compile Include="Models\Entities\Item.cs" />
+    <Compile Include="Models\Entities\Shopping_Cart.cs" />
     <Compile Include="Models\San_Pham.cs" />
     <Compile Include="Models\Tai_Khoan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,7 +178,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\bill-gates.jpg" />
     <Content Include="Content\images\border.gif" />
+    <Content Include="Content\images\call-now.png" />
     <Content Include="Content\images\cart-price.gif" />
     <Content Include="Content\images\cart.gif" />
     <Content Include="Content\images\container-t.gif" />
@@ -188,6 +194,7 @@
     <Content Include="Content\images\image2.jpg" />
     <Content Include="Content\images\image3.jpg" />
     <Content Include="Content\images\image4.jpg" />
+    <Content Include="Content\images\jack-ma.jpg" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\logo1.gif" />
     <Content Include="Content\images\logo2.gif" />
@@ -200,6 +207,7 @@
     <Content Include="Content\images\search.gif" />
     <Content Include="Content\images\slide1.jpg" />
     <Content Include="Content\images\slide2.jpg" />
+    <Content Include="Content\images\steve-jobs.jpg" />
     <Content Include="Content\images\tab.gif" />
     <Content Include="Content\images_admin\auth\login_1.jpg" />
     <Content Include="Content\images_admin\auth\register.jpg" />
@@ -2132,6 +2140,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\cartController.js" />
     <Content Include="Scripts\js\jquery-1.4.1.min.js" />
     <Content Include="Scripts\js\jquery-func.js" />
     <Content Include="Scripts\js\jquery.jcarousel.pack.js" />
@@ -2155,27 +2164,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Admin\Admin_page.cshtml" />
     <Content Include="Views\Shared\Layout_Admin.cshtml" />
     <Content Include="Views\Shared\Left_Menu_Admin.cshtml" />
-    <Content Include="Views\SanPham\San_Pham.cshtml" />
-    <Content Include="Views\TaiKhoan\Tai_Khoan.cshtml" />
-    <Content Include="Views\TaiKhoan\Create_TK.cshtml" />
-    <Content Include="Views\TaiKhoan\Edit_TK.cshtml" />
-    <Content Include="Views\TaiKhoan\Details_TK.cshtml" />
-    <Content Include="Views\TaiKhoan\Delete_TK.cshtml" />
-    <Content Include="Views\SanPham\Create_SP.cshtml" />
-    <Content Include="Views\SanPham\Edit_SP.cshtml" />
-    <Content Include="Views\SanPham\Details_SP.cshtml" />
-    <Content Include="Views\SanPham\Delete_SP.cshtml" />
-    <Content Include="Views\DanhMuc\Danh_Muc.cshtml" />
-    <Content Include="Views\DanhMuc\Edit_DM.cshtml" />
-    <Content Include="Views\SanPham_\Create.cshtml" />
-    <Content Include="Views\SanPham_\Delete.cshtml" />
-    <Content Include="Views\SanPham_\Details.cshtml" />
-    <Content Include="Views\SanPham_\Edit.cshtml" />
-    <Content Include="Views\SanPham_\Index.cshtml" />
     <Content Include="Views\TaiKhoan_\Create.cshtml" />
     <Content Include="Views\TaiKhoan_\Delete.cshtml" />
     <Content Include="Views\TaiKhoan_\Details.cshtml" />
@@ -2183,9 +2175,45 @@
     <Content Include="Views\TaiKhoan_\Index.cshtml" />
     <Content Include="Views\Home\List_SanPham.cshtml" />
     <Content Include="Views\Home\ChiTiet_SP.cshtml" />
+    <Content Include="Views\ShoppingCart\Cart.cshtml" />
+    <Content Include="Views\Shared\Slogan.cshtml" />
+    <Content Include="Views\LoaiGiay\Create.cshtml" />
+    <Content Include="Views\LoaiGiay\Delete.cshtml" />
+    <Content Include="Views\LoaiGiay\Details.cshtml" />
+    <Content Include="Views\LoaiGiay\Edit.cshtml" />
+    <Content Include="Views\LoaiGiay\Index.cshtml" />
+    <Content Include="Views\Mau\Create.cshtml" />
+    <Content Include="Views\Mau\Delete.cshtml" />
+    <Content Include="Views\Mau\Details.cshtml" />
+    <Content Include="Views\Mau\Edit.cshtml" />
+    <Content Include="Views\Mau\Index.cshtml" />
+    <Content Include="Views\Size\Create.cshtml" />
+    <Content Include="Views\Size\Delete.cshtml" />
+    <Content Include="Views\Size\Details.cshtml" />
+    <Content Include="Views\Size\Edit.cshtml" />
+    <Content Include="Views\Size\Index.cshtml" />
+    <Content Include="Views\DonHang\Create.cshtml" />
+    <Content Include="Views\DonHang\Delete.cshtml" />
+    <Content Include="Views\DonHang\Details.cshtml" />
+    <Content Include="Views\DonHang\Edit.cshtml" />
+    <Content Include="Views\DonHang\Index.cshtml" />
+    <Content Include="Views\SanPham\Create.cshtml" />
+    <Content Include="Views\SanPham\Delete.cshtml" />
+    <Content Include="Views\SanPham\Details.cshtml" />
+    <Content Include="Views\SanPham\Edit.cshtml" />
+    <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\ChiTietMau\Create.cshtml" />
+    <Content Include="Views\ChiTietMau\Delete.cshtml" />
+    <Content Include="Views\ChiTietMau\Details.cshtml" />
+    <Content Include="Views\ChiTietMau\Edit.cshtml" />
+    <Content Include="Views\ChiTietMau\Index.cshtml" />
+    <Content Include="Views\Home\LienHe.cshtml" />
+    <Content Include="Views\Home\GioiThieu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\img_product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2199,6 +2227,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

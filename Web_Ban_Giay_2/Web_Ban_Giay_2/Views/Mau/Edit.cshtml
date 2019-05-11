@@ -1,0 +1,40 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.Mau
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+    <div style="margin-left: 15px;">
+        <h2>Sửa Màu</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Màu</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Mamau)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tenmau, "Tên màu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tenmau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tenmau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group create-sp">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+
+        <div>
+            @Html.ActionLink("Quay lại màu", "Index")
+        </div>
+    </div>
+        }
+    </div>
+

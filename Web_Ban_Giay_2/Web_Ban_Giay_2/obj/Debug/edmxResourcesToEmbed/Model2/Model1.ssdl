@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebBanGiayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietDonHang">
+    <Key>
+      <PropertyRef Name="Madh" />
+      <PropertyRef Name="Magiay" />
+    </Key>
+    <Property Name="Madh" Type="int" Nullable="false" />
+    <Property Name="Magiay" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="Dongia" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Thanhtien" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ChiTietMau">
+    <Key>
+      <PropertyRef Name="Mamau" />
+      <PropertyRef Name="Magiay" />
+    </Key>
+    <Property Name="Mamau" Type="int" Nullable="false" />
+    <Property Name="Magiay" Type="int" Nullable="false" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ChiTietSize">
+    <Key>
+      <PropertyRef Name="Masize" />
+      <PropertyRef Name="Magiay" />
+    </Key>
+    <Property Name="Masize" Type="int" Nullable="false" />
+    <Property Name="Magiay" Type="int" Nullable="false" />
+    <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DonHang">
+    <Key>
+      <PropertyRef Name="Madh" />
+    </Key>
+    <Property Name="Madh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Makh" Type="int" />
+    <Property Name="Tendh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ngaydat" Type="datetime" />
+    <Property Name="Ngaygiao" Type="datetime" />
+    <Property Name="Tinhtranggh" Type="int" />
+    <Property Name="Dathanhtoan" Type="int" />
+  </EntityType>
+  <EntityType Name="Giay">
+    <Key>
+      <PropertyRef Name="Magiay" />
+    </Key>
+    <Property Name="Magiay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Manhacc" Type="int" />
+    <Property Name="Manhasx" Type="int" />
+    <Property Name="Maloaigiay" Type="int" />
+    <Property Name="Tengiay" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soluongton" Type="int" />
+    <Property Name="Giaban" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Hinhanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mota" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="Makh" />
+    </Key>
+    <Property Name="Makh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tenkh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Taikhoan" Type="varchar" MaxLength="30" />
+    <Property Name="Matkhau" Type="nvarchar" MaxLength="30" />
+    <Property Name="Email" Type="nvarchar" MaxLength="30" />
+    <Property Name="Gioitinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="Ngaysinh" Type="date" />
+    <Property Name="Sst" Type="varchar" MaxLength="50" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiGiay">
+    <Key>
+      <PropertyRef Name="Maloaigiay" />
+    </Key>
+    <Property Name="Maloaigiay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tenloaigiay" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Mau">
+    <Key>
+      <PropertyRef Name="Mamau" />
+    </Key>
+    <Property Name="Mamau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tenmau" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NhaCungCap">
+    <Key>
+      <PropertyRef Name="Manhacc" />
+    </Key>
+    <Property Name="Manhacc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tennhacc" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sdt" Type="varchar" MaxLength="20" />
+    <Property Name="Website" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NhaSanXuat">
+    <Key>
+      <PropertyRef Name="Manhasx" />
+    </Key>
+    <Property Name="Manhasx" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tennhasx" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sdt" Type="varchar" MaxLength="20" />
+    <Property Name="Website" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="Masize" />
+    </Key>
+    <Property Name="Masize" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sosize" Type="int" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="Matk" />
+    </Key>
+    <Property Name="Matk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tentk" Type="varchar" MaxLength="50" />
+    <Property Name="Matkhau" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__ChiTietDo__Magia__20C1E124">
+    <End Role="Giay" Type="Self.Giay" Multiplicity="1" />
+    <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Giay">
+        <PropertyRef Name="Magiay" />
+      </Principal>
+      <Dependent Role="ChiTietDonHang">
+        <PropertyRef Name="Magiay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietDon__Madh__1FCDBCEB">
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
+    <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonHang">
+        <PropertyRef Name="Madh" />
+      </Principal>
+      <Dependent Role="ChiTietDonHang">
+        <PropertyRef Name="Madh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietMa__Magia__2C3393D0">
+    <End Role="Giay" Type="Self.Giay" Multiplicity="1" />
+    <End Role="ChiTietMau" Type="Self.ChiTietMau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Giay">
+        <PropertyRef Name="Magiay" />
+      </Principal>
+      <Dependent Role="ChiTietMau">
+        <PropertyRef Name="Magiay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietMa__Mamau__2B3F6F97">
+    <End Role="Mau" Type="Self.Mau" Multiplicity="1" />
+    <End Role="ChiTietMau" Type="Self.ChiTietMau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mau">
+        <PropertyRef Name="Mamau" />
+      </Principal>
+      <Dependent Role="ChiTietMau">
+        <PropertyRef Name="Mamau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietSi__Magia__286302EC">
+    <End Role="Giay" Type="Self.Giay" Multiplicity="1" />
+    <End Role="ChiTietSize" Type="Self.ChiTietSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Giay">
+        <PropertyRef Name="Magiay" />
+      </Principal>
+      <Dependent Role="ChiTietSize">
+        <PropertyRef Name="Magiay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietSi__Masiz__276EDEB3">
+    <End Role="Size" Type="Self.Size" Multiplicity="1" />
+    <End Role="ChiTietSize" Type="Self.ChiTietSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Size">
+        <PropertyRef Name="Masize" />
+      </Principal>
+      <Dependent Role="ChiTietSize">
+        <PropertyRef Name="Masize" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DonHang__Makh__182C9B23">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="Makh" />
+      </Principal>
+      <Dependent Role="DonHang">
+        <PropertyRef Name="Makh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Giay__Maloaigiay__1CF15040">
+    <End Role="LoaiGiay" Type="Self.LoaiGiay" Multiplicity="0..1" />
+    <End Role="Giay" Type="Self.Giay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiGiay">
+        <PropertyRef Name="Maloaigiay" />
+      </Principal>
+      <Dependent Role="Giay">
+        <PropertyRef Name="Maloaigiay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Giay__Manhacc__1B0907CE">
+    <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="0..1" />
+    <End Role="Giay" Type="Self.Giay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaCungCap">
+        <PropertyRef Name="Manhacc" />
+      </Principal>
+      <Dependent Role="Giay">
+        <PropertyRef Name="Manhacc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Giay__Manhasx__1BFD2C07">
+    <End Role="NhaSanXuat" Type="Self.NhaSanXuat" Multiplicity="0..1" />
+    <End Role="Giay" Type="Self.Giay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaSanXuat">
+        <PropertyRef Name="Manhasx" />
+      </Principal>
+      <Dependent Role="Giay">
+        <PropertyRef Name="Manhasx" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebBanGiayModelStoreContainer">
+    <EntitySet Name="ChiTietDonHang" EntityType="Self.ChiTietDonHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChiTietMau" EntityType="Self.ChiTietMau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChiTietSize" EntityType="Self.ChiTietSize" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Giay" EntityType="Self.Giay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiGiay" EntityType="Self.LoaiGiay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mau" EntityType="Self.Mau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhaCungCap" EntityType="Self.NhaCungCap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhaSanXuat" EntityType="Self.NhaSanXuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ChiTietDo__Magia__20C1E124" Association="Self.FK__ChiTietDo__Magia__20C1E124">
+      <End Role="Giay" EntitySet="Giay" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietDon__Madh__1FCDBCEB" Association="Self.FK__ChiTietDon__Madh__1FCDBCEB">
+      <End Role="DonHang" EntitySet="DonHang" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietMa__Magia__2C3393D0" Association="Self.FK__ChiTietMa__Magia__2C3393D0">
+      <End Role="Giay" EntitySet="Giay" />
+      <End Role="ChiTietMau" EntitySet="ChiTietMau" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietMa__Mamau__2B3F6F97" Association="Self.FK__ChiTietMa__Mamau__2B3F6F97">
+      <End Role="Mau" EntitySet="Mau" />
+      <End Role="ChiTietMau" EntitySet="ChiTietMau" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietSi__Magia__286302EC" Association="Self.FK__ChiTietSi__Magia__286302EC">
+      <End Role="Giay" EntitySet="Giay" />
+      <End Role="ChiTietSize" EntitySet="ChiTietSize" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietSi__Masiz__276EDEB3" Association="Self.FK__ChiTietSi__Masiz__276EDEB3">
+      <End Role="Size" EntitySet="Size" />
+      <End Role="ChiTietSize" EntitySet="ChiTietSize" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DonHang__Makh__182C9B23" Association="Self.FK__DonHang__Makh__182C9B23">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="DonHang" EntitySet="DonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Giay__Maloaigiay__1CF15040" Association="Self.FK__Giay__Maloaigiay__1CF15040">
+      <End Role="LoaiGiay" EntitySet="LoaiGiay" />
+      <End Role="Giay" EntitySet="Giay" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Giay__Manhacc__1B0907CE" Association="Self.FK__Giay__Manhacc__1B0907CE">
+      <End Role="NhaCungCap" EntitySet="NhaCungCap" />
+      <End Role="Giay" EntitySet="Giay" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Giay__Manhasx__1BFD2C07" Association="Self.FK__Giay__Manhasx__1BFD2C07">
+      <End Role="NhaSanXuat" EntitySet="NhaSanXuat" />
+      <End Role="Giay" EntitySet="Giay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
