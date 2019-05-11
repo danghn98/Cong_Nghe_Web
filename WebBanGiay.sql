@@ -11,17 +11,6 @@ GO
 
 use [WebBanGiay]
 GO
-CREATE TABLE KhachHang(
-	Makh int identity primary key ,
-	Tenkh nvarchar(50),
-	Taikhoan varchar(30),
-	Matkhau nvarchar(30),
-	Email nvarchar(30),
-	Gioitinh nvarchar(10) ,
-	Ngaysinh date,
-	Sst varchar(50),
-	Diachi nvarchar(50), 
-)
 
 CREATE TABLE NhaCungCap(
 	Manhacc int identity primary key,
@@ -46,11 +35,14 @@ CREATE TABLE LoaiGiay(
 
 CREATE TABLE DonHang(
 	Madh int identity primary key,
-	Makh int references KhachHang(Makh),
 	Tendh nvarchar(50),
+	Tenkh nvarchar(50),
+	Email varchar(50),
+	Sdt varchar(20),
+	Diachi nvarchar(500),
 	Ngaydat datetime,
 	Ngaygiao datetime,
-	Tinhtranggh int,
+	Tinhtranggh nvarchar(50),
 	Dathanhtoan int,
 )
 
@@ -63,6 +55,7 @@ CREATE TABLE Giay(
 	Soluongton int,
 	Giaban decimal(18,0),
 	Hinhanh nvarchar(50),
+	Mota nvarchar(4000),
 )
 
 CREATE TABLE ChiTietDonHang(
@@ -70,7 +63,6 @@ CREATE TABLE ChiTietDonHang(
 	Magiay int references Giay(Magiay),
 	SoLuong int,
 	Dongia decimal(18,0),
-	Thanhtien decimal(18,0),
 	primary key(Madh,Magiay),	
 )
 
@@ -127,21 +119,21 @@ insert into NhaCungCap values(N'Công ty TNHH Nike VN', N'Hà Nội, Việt Nam'
 insert into NhaCungCap values(N'Công ty TNHH Convert VN', N'Hà Nội, Việt Nam', '0943579834', 'nike.com.vn')
 
 --insert Giay
-insert into Giay values(1, 5, 1, N'Adidas 1', 20, 500000, null)
-insert into Giay values(1, 5, 2, N'Adidas 2', 12, 600000, null)
-insert into Giay values(1, 5, 1, N'Adidas 3', 7, 700000, null)
-insert into Giay values(1, 5, 3, N'Adidas 4', 18, 800000, null)
-insert into Giay values(1, 5, 1, N'Adidas 5', 20, 750000, null)
-insert into Giay values(2, 4, 1, N'Bitis 1', 12, 625000, null)
-insert into Giay values(2, 4, 1, N'Bitis 2', 24, 400000, null)
-insert into Giay values(2, 4, 2, N'Bitis 3', 12, 550000, null)
-insert into Giay values(2, 4, 3, N'Bitis 4', 16, 900000, null)
-insert into Giay values(2, 4, 2, N'Bitis 5', 6, 2000000, null)
-insert into Giay values(4, 1, 1, N'Nike 1', 12, 1150000, null)
-insert into Giay values(4, 1, 1, N'Nike 2', 12, 2500000, null)
-insert into Giay values(4, 1, 1, N'Nike 3', 13, 1490000, null)
-insert into Giay values(4, 1, 2, N'Nike 4', 11, 999000, null)
-insert into Giay values(4, 1, 3, N'Nike 5', 17, 890000, null)
+insert into Giay values(1, 2, 1, N'Giày  Adidas Ultra Boost ST S80616 1', 20, 500000, N'giay_1.png', null)
+insert into Giay values(1, 5, 2, N'Adidas 2', 12, 600000, N'giay_2.jpg', null)
+insert into Giay values(1, 5, 1, N'Adidas 3', 7, 700000, N'giay_3.jpg', null)
+insert into Giay values(1, 5, 3, N'Adidas 4', 18, 800000, N'giay_4.jpg', null)
+insert into Giay values(1, 5, 1, N'Adidas 5', 20, 750000, N'giay_5.jpg', null)
+insert into Giay values(2, 4, 1, N'Bitis 1', 12, 625000, N'giay_6.jpg', null)
+insert into Giay values(2, 4, 1, N'Bitis 2', 24, 400000, N'giay_7.jpg', null)
+insert into Giay values(2, 4, 2, N'Bitis 3', 12, 550000, N'giay_8.jpg', null)
+insert into Giay values(2, 4, 3, N'Bitis 4', 16, 900000, N'giay_9.jpg', null)
+insert into Giay values(2, 4, 2, N'Bitis 5', 6, 2000000, N'giay_10.jpg', null)
+insert into Giay values(4, 1, 1, N'Nike 1', 12, 1150000, N'giay_11.jpg', null)
+insert into Giay values(4, 1, 1, N'Nike 2', 12, 2500000, N'giay_12.jpg', null)
+insert into Giay values(4, 1, 1, N'Nike 3', 13, 1490000, N'giay_13.jpg', null)
+insert into Giay values(4, 1, 2, N'Nike 4', 11, 999000, N'giay_14.jpg', null)
+insert into Giay values(4, 1, 3, N'Nike 5', 17, 890000, N'giay_15.jpg', null)
 
 -- insert Mau
 insert into Mau values(N'Xanh')
