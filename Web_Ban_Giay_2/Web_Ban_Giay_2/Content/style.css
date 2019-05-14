@@ -58,7 +58,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .options { height:47px; white-space:nowrap; padding-top:3px;}
 .options .search{ float:left; padding:6px 0 0 0; background:url(images/border.gif) repeat-y right 0; height:33px; margin-right:12px;}
 .options .search .field{ float:left; width:191px; height:21px; background:url(images/field.gif); padding:6px 5px 0 5px;}
-.options .search .field input{ width:191px; border:0; background:transparent; color:#000; font-weight: bold;}
+.options .search .field input{ width:191px; border:0; background:transparent; color:#000; font-weight: bold; padding-left: 8px;}
 .search-submit{ float:left; font-size:0; line-height:0; width:24px; height:27px; background:url(images/search.gif); text-indent: -4000px; border:0; margin-left:9px; cursor:pointer; position:relative; top:1px; margin-right:13px;}
 
 .options a { color:#636363; text-decoration: underline;}
@@ -90,11 +90,12 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .tabs ul li a.active span,
 .tabs ul li a:hover span{ background-position:right 0;}
 
-#container { background:#fff url(images/container-t.gif) no-repeat 0 0; padding:30px 20px 0 20px; }
+#container { background:#fff url(images/container-t.gif) no-repeat 0 0; padding:30px 20px 0 20px; border-radius: 3px; }
 
 .items { position:relative; width:100%; margin-right:-20px; padding-bottom:5px; /*min-height: 852px;*/ height: auto;}
 .tabbed-sp .items {
-    min-height: 999px;
+    /*min-height: 999px;*/
+    /*min-height: 999px;*/
 }
 .items ul {
     list-style-type: none;
@@ -156,9 +157,9 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .tab-right {
     width: 21%;
     float: left;
-    padding-left: 10px;
-    border-left: 1px solid #ccc;
-    height: 1041px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .fot {
@@ -180,6 +181,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
     margin: 8px 0 0 15px;
     padding: 7px 10px;
     margin-right: 8px;
+    margin-bottom: 10px;
 }
 
     .tab-right button:hover {
@@ -213,6 +215,8 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
     height: 22px;
     font-size: 13px;
     margin: 0 3px 0 0;
+    border: 1px solid #9e9d9d;
+    border-radius: 2px;
 }
 
 .sort {
@@ -223,12 +227,13 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 
     .sort option, .sort select {
         font-size: 14px;
-        height: 22px;
+        height: 24px;
+        border-radius: 2px;
     }
 
 .list-page {
     font-size: 15px;
-    border-top: 1px solid #ccc;
+    margin-top: -15px;
 }
 
     .list-page li {
@@ -266,12 +271,14 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
     border: 1px solid #ccc;
     padding: 15px 10px;
     margin-top: 15px;
+    border-radius: 10px;
 }
 
 #container-ct {
     height: 500px;
     background: #fff;
     border-radius: 3px;
+    margin-top: 20px;
 }
 
 .items-ct {
@@ -552,7 +559,12 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 }
 
 .items ul li:hover {
-    border: 1px solid #848282;
+    border: 1px solid #9c9898;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.items ul li span {
+    color: #890000;
 }
 
 .tabbed-left-cart td {
@@ -566,6 +578,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .color select {
     font-size: 14px;
     padding: 3px;
+    border-radius: 3px;
 }
 
 .tab-right a {
@@ -608,6 +621,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
         width: 215px;
         height: 150px;
         margin-bottom: 10px;
+        border-radius: 2px;
     }
 
     .co-founder .co {
@@ -615,4 +629,124 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
         margin-right: 13px;
         line-height: 25px;
         font-size: 15px;
+    }
+
+.left-checkout {
+    font-size: 14px;
+    color: #000;
+}
+
+    .left-checkout h3 {
+        color: #000;
+        font-size: 14px;
+        margin-top: 35px;
+        margin-bottom: 20px;
+    }
+
+    .left-checkout p {
+        float: left;
+        clear: both;
+        text-align: right;
+        min-width: 166px;
+        margin-right: 5px;
+        padding-top: 7px;
+    }
+
+    .left-checkout input {
+        float: left;
+        width: 350px;
+        height: 30px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        border: 1px solid #888383;
+        font-size: 15px;
+        padding-left: 5px;
+    }
+
+        .left-checkout input:focus, .left-checkout textarea:focus {
+            border: 1px solid #288acc;
+            box-shadow: 0 0 0 3px hsla(0,0%,88.2%,.3);
+        }
+
+    .left-checkout textarea {
+        float: left;
+        width: 350px !important;
+        height: 80px !important;
+        border-radius: 3px;
+        border: 1px solid #888383;
+        font-size: 15px;
+        margin-bottom: 10px;
+        padding-left: 5px;
+    }
+
+::-webkit-input-placeholder {
+    font-style: italic;
+}
+
+.btn-checkout {
+    clear: both;
+    text-align: center;
+}
+
+
+    .btn-checkout button {
+        font-size: 20px;
+        border: 1px solid #ccc;
+        background: #00c2ff;
+        padding: 8px 30px;
+        border-radius: 24px;
+        margin-right: 70px;
+        margin-top: 15px;
+    }
+
+        .btn-checkout button:hover {
+            background: #1196bf;
+        }
+
+.pt-thanhtoan{
+    float: left;
+}
+
+    .pt-thanhtoan input {
+        font-size: 14px;
+        width: 14px;
+        clear: both;
+        margin-left: 15px;
+        margin-right: 10px;
+    }
+
+.pt-thanhtoan p{
+    text-align: left;
+    clear: none;
+}
+
+.bando {
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    width: 600px;
+    margin-left: 10px;
+}
+
+.right .cart p {
+    z-index: 1;
+    position: absolute;
+    height: 18px;
+    width: 20px;
+    color: #701616;
+    background: #ccc;
+    text-align: center;
+    border-radius: 18px;
+    margin-left: 28px;
+    padding-top: 3px;
+}
+
+.tabbed-left-cart div a {
+    border: 1px solid #b5b2b2;
+    padding: 7px;
+    border-radius: 2px;
+    background: #ccc;
+}
+
+    .tabbed-left-cart div a:hover {
+        border: 1px solid #9e9c9c;
     }

@@ -141,7 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\ChiTietMauController.cs" />
+    <Compile Include="Controllers\ChiTietMausController.cs" />
     <Compile Include="Controllers\DonHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiGiayController.cs" />
@@ -150,6 +150,7 @@
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Controllers\TaiKhoan_Controller.cs" />
+    <Compile Include="Controllers\ThuongHieuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,6 +196,7 @@
     <Content Include="Content\images\image3.jpg" />
     <Content Include="Content\images\image4.jpg" />
     <Content Include="Content\images\jack-ma.jpg" />
+    <Content Include="Content\images\logo-admin.png" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\logo1.gif" />
     <Content Include="Content\images\logo2.gif" />
@@ -2202,14 +2204,20 @@
     <Content Include="Views\SanPham\Details.cshtml" />
     <Content Include="Views\SanPham\Edit.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\ChiTietMau\Create.cshtml" />
-    <Content Include="Views\ChiTietMau\Delete.cshtml" />
-    <Content Include="Views\ChiTietMau\Details.cshtml" />
-    <Content Include="Views\ChiTietMau\Edit.cshtml" />
-    <Content Include="Views\ChiTietMau\Index.cshtml" />
     <Content Include="Views\Home\LienHe.cshtml" />
     <Content Include="Views\Home\GioiThieu.cshtml" />
+    <Content Include="Views\ThuongHieu\Create.cshtml" />
+    <Content Include="Views\ThuongHieu\Delete.cshtml" />
+    <Content Include="Views\ThuongHieu\Details.cshtml" />
+    <Content Include="Views\ThuongHieu\Edit.cshtml" />
+    <Content Include="Views\ThuongHieu\Index.cshtml" />
+    <Content Include="Views\Home\ThanhToan.cshtml" />
+    <Content Include="Views\SanPham\Test.cshtml" />
+    <Content Include="Views\ChiTietMaus\Create.cshtml" />
+    <Content Include="Views\ChiTietMaus\Delete.cshtml" />
+    <Content Include="Views\ChiTietMaus\Details.cshtml" />
+    <Content Include="Views\ChiTietMaus\Edit.cshtml" />
+    <Content Include="Views\ChiTietMaus\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

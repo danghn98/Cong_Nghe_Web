@@ -28,11 +28,15 @@
 
                 <div class="sort">
                     Sắp xếp :
+                    
                     <select>
-                        <option>Mặc định</option>
-                        <option>Giá tăng dần</option>
-                        <option>Giá giảm dần</option>
+                        
+                            <option>Mặc định</option>
+                            <option>Giá tăng dần</option>
+                            <option>Giá giảm dần</option>
+                        
                     </select>
+                    
                 </div>
 
                 <div class="items">
@@ -53,7 +57,7 @@
                                     <p>
                                     <p style="min-height: 44px;"><span>@Html.ActionLink(i.Tengiay, "ChiTiet_SP", new { id = i.Magiay })</span></p><br />
                                     Loại Giày : <span>@i.LoaiGiay.Tenloaigiay</span><br />
-                                    Thương Hiệu: <a href="#">@Html.DisplayFor(modelItem => i.NhaSanXuat.Tennhasx)</a>
+                                    Thương Hiệu: <span>@Html.DisplayFor(modelItem => i.NhaSanXuat.Tennhasx)</span>
                                     </p>
                                     <p class="price">Giá bán: <strong>@i.Giaban.GetValueOrDefault(0).ToString("N0") đ</strong></p>
                                 </li>
@@ -79,17 +83,16 @@
             <div class="tab-right">
                 <form action="/Home/Filter" method="post">
                     <h2>Lọc sản phẩm</h2>
-                    
-                    <button type="submit">Thực hiện lọc</button>
-                    <a href="/Home/List_SanPham">Bỏ lọc</a>
+
+
 
                     <div class="color price-v">
                         <p>Khoảng giá</p>
-                        <input type="number" name="" min="0" value="0">đến
-                        <input type="number" name="" min="0" value="0">
+                        <input type="number" name="firstP" min="0" value="0">đến
+                        <input type="number" name="finalP" min="0" value="0">
                     </div>
 
-                    <div class="color">
+                    @*<div class="color">
                         <p>Màu</p>
                         <select name="mau">
                             <option value="">Mặc định</option>
@@ -108,8 +111,8 @@
                         </select>
                         @*<li><input type="checkbox" name="">Đen</li>
         <li><input type="checkbox" name="">Trắng</li>
-        <li><input type="checkbox" name="">Đỏ</li>*@
-                    </div>
+        <li><input type="checkbox" name="">Đỏ</li>
+                    </div>*@
 
 
 
@@ -130,8 +133,8 @@
                             }
                         </select>
                         @*<li><input type="checkbox" name="">Nike</li>
-                        <li><input type="checkbox" name="">Adidas</li>
-                        <li><input type="checkbox" name="">Bitis</li>*@
+            <li><input type="checkbox" name="">Adidas</li>
+            <li><input type="checkbox" name="">Bitis</li>*@
                     </div>
 
                     <div class="color">
@@ -152,19 +155,22 @@
                         </select>
 
                         @*<li><input type="checkbox" name="">Nam</li>
-                        <li><input type="checkbox" name="">Nữ</li>
-                        <li><input type="checkbox" name="">Trẻ em</li>*@
+            <li><input type="checkbox" name="">Nữ</li>
+            <li><input type="checkbox" name="">Trẻ em</li>*@
                     </div>
 
-                    <div class="list-page" style="display: none;">
-                    <!-- Thêm mã phân trang -->
-                    <br />
-                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                    <button type="submit">Thực hiện lọc</button>
+                    <a href="/Home/List_SanPham">Bỏ lọc</a>
 
-                    @Html.PagedListPager(Model, page => Url.Action("List_SanPham",
-                        new { page }))
-                    <!-- Kết thúc -->
-                </div>
+                    @*<div class="list-page" style="display: none;">
+                        <!-- Thêm mã phân trang -->
+                        <br />
+                        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+                        @Html.PagedListPager(Model, page => Url.Action("List_SanPham",
+                            new { page }))
+                        <!-- Kết thúc -->
+                    </div>*@
                 </form>
             </div>
 

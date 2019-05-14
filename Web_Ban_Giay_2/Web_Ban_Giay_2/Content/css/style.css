@@ -13616,7 +13616,7 @@ button:visited {
 
 a:focus,
 input:focus {
-  border-color: transparent;
+  /*border-color: transparent;*/
   outline: none; }
 
 /* Fonts */
@@ -16119,7 +16119,7 @@ ul {
 /* === Landing screens === */
 /* Auth */
 .auth.auth-bg-1 {
-  background: url("../images/auth/login_1.jpg");
+  background: url("../images_admin/auth/login_1.jpg");
   background-size: cover; }
 
 .auth.register-bg-1 {
@@ -16322,14 +16322,19 @@ button p {
 }
 
 .form-horizontal{
-    width: 80%;
+    width: 40%;
     margin-top: 30px;
     min-width: 400px;
     margin-left: 150px;
 }
 
+.col-md-10 textarea{
+    width: 100%;
+    height: 200px
+}
+
 .create-sp {
-    float: left; 
+    float: left;
 }
 
 .xoa-sp{
@@ -16429,26 +16434,28 @@ a.nav-link:focus {
 /* Dropdown Content, mặc định sẽ được ẩn đi */
 .dropdown-content {
     display: none;
-    position: absolute;
-    background-color: #f9f9f9;
+    /*position: absolute;*/
+    background-color: #545252;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
-    margin-left: 55px;
+    /*margin-left: 55px;*/
 }
 
     /* Định dạng các thẻ a là các menu con */
     .dropdown-content a {
-        color: #3d3d3d;
-        padding: 12px 16px;
+        color: #fff;
+        padding: 12px;
         text-decoration: none;
         display: block;
         font-size: 12px;
+        padding-left: 80px;
     }
 
         /* Thay đổi màu nền khi các menu con được hover */
         .dropdown-content a:hover {
-            background-color: #f1f1f1
+            background-color: #f1f1f1;
+            color: #3d3d3d;
         }
 
 /* Hiển thị menu, ta sẽ dùng javascript để thêm class này vào các nôi dung cần được hiển thị */
@@ -16459,6 +16466,8 @@ a.nav-link:focus {
 .navbar-nav button {
     background-color: #14ced6;
     padding-left: 17px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
     .navbar-nav button:hover {
@@ -16468,6 +16477,7 @@ a.nav-link:focus {
 
 .navbar-nav #laptrinhs{
     margin-left: 10px;
+    border-radius: 3px;
 }
 
 .conts {
@@ -16517,6 +16527,7 @@ a.nav-link:focus {
         text-decoration: none;
         display: block;
         font-size: 12px;
+        border-radius: 3px;
     }
 
         /* Thay đổi màu nền khi các menu con được hover */
@@ -16548,4 +16559,56 @@ a.nav-link:focus {
 
 .table tr:hover {
     background: #efeded;
+}
+
+.filter{
+    margin-top: 30px;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.filter-left{
+    float: left;
+}
+
+.filter-left p {
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.filter-left select {
+    float: left;
+    font-size: 14px;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+    .filter-left button{
+        height: 24px;
+        padding: 0 12px;
+    }
+
+    .filter-right {
+        float: right;
+        margin-right: 9px;
+    }
+
+        .filter-right input {
+            border-radius: 3px;
+            border: 1px solid #928f8f;
+            height: 27px;
+        }
+
+.details-size-color {
+    float: left;
+    width: 30%;
+    margin-top: 83px;
+}
+
+.form-sp {
+    float: left;
+    width: 58%;
 }

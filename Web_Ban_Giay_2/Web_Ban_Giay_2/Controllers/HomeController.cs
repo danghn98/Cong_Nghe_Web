@@ -45,7 +45,9 @@ namespace Web_Ban_Giay_2.Controllers
             return View(links.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Filter(int? page, string loaigiay, string thuonghieu)
+        
+
+        public ActionResult Filter(int? page, string thuonghieu, string loaigiay, int firstP, int finalP)
         {
             
             if (page == null) page = 1;
@@ -54,20 +56,76 @@ namespace Web_Ban_Giay_2.Controllers
 
             var lst = db.Giays.ToList();
 
-            if (thuonghieu == "0")
+            if (thuonghieu == "0" && loaigiay == "0" && firstP == 0 && finalP == 0)
             {
-                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(x => x.LoaiGiay.Tenloaigiay == loaigiay).ToList();
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).ToList();
             }
-            else if (loaigiay == "0")
+            else if (thuonghieu != "0" && loaigiay == "0" && firstP == 0 && finalP == 0)
             {
+                
                 lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay != "0" && firstP == 0 && finalP == 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).Where(lg=>lg.LoaiGiay.Tenloaigiay == loaigiay).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay != "0" && firstP == 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).Where(lg=>lg.LoaiGiay.Tenloaigiay == loaigiay).Where(gb=>gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay != "0" && firstP != 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).Where(lg => lg.LoaiGiay.Tenloaigiay == loaigiay).Where(gb => gb.Giaban >= firstP && gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay == "0" && firstP == 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).Where(gb => gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay == "0" && firstP != 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).Where(gb => gb.Giaban >= firstP && gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu == "0" && loaigiay != "0" && firstP == 0 && finalP == 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(lg => lg.LoaiGiay.Tenloaigiay == loaigiay).ToList();
+            }
+            else if (thuonghieu == "0" && loaigiay != "0" && firstP == 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(lg => lg.LoaiGiay.Tenloaigiay == loaigiay).Where(gb=>gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu == "0" && loaigiay != "0" && firstP != 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(lg => lg.LoaiGiay.Tenloaigiay == loaigiay).Where(gb => gb.Giaban>=firstP && gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu == "0" && loaigiay == "0" && firstP == 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(gb => gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu == "0" && loaigiay == "0" && firstP != 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(gb => gb.Giaban >= firstP && gb.Giaban <= finalP).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay != "0" && firstP != 0 && finalP != 0)
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(x => x.LoaiGiay.Tenloaigiay == loaigiay).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).Where(gb=>gb.Giaban >= firstP && gb.Giaban <= finalP).ToList();
             }
             else
             {
-                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(x => x.LoaiGiay.Tenloaigiay == loaigiay).Where(th => th.NhaSanXuat.Tennhasx == thuonghieu).ToList();
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(x => x.LoaiGiay.Tenloaigiay == "0").ToList();
             }
-            
+
             return View("List_SanPham",lst.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult Search(int? page, string search)
+        {
+            if (page == null) page = 1;
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            var lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(tg=>tg.Tengiay.Contains(search)).ToList();
+
+            return View("List_SanPham", lst.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult ChiTiet_SP(int? id)
@@ -90,6 +148,11 @@ namespace Web_Ban_Giay_2.Controllers
         }
 
         public ActionResult GioiThieu()
+        {
+            return View();
+        }
+
+        public ActionResult ThanhToan()
         {
             return View();
         }

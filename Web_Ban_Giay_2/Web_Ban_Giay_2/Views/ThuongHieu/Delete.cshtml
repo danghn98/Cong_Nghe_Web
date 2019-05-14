@@ -1,0 +1,35 @@
+﻿@model Web_Ban_Giay_2.Models.Entities.NhaSanXuat
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Layout_Admin.cshtml";
+}
+<div style="margin-left: 15px;">
+<h2>Xóa Thương Hiệu</h2>
+
+<div class="xoa-sp">
+    <h4>Thương hiệu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Thương hiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tennhasx)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>
+</div>

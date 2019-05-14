@@ -183,5 +183,45 @@ namespace Web_Ban_Giay_2.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Filter(int? page, string thuonghieu, string loaigiay)
+        {
+            if (page == null) page = 1;
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            var lst = db.Giays.ToList();
+
+            if (thuonghieu == "0" && loaigiay != "0")
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(lg=>lg.LoaiGiay.Tenloaigiay == loaigiay).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay == "0")
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(lg => lg.NhaSanXuat.Tennhasx == thuonghieu).ToList();
+            }
+            else if (thuonghieu != "0" && loaigiay != "0")
+            {
+                lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(lg => lg.NhaSanXuat.Tennhasx == thuonghieu).Where(lg => lg.LoaiGiay.Tenloaigiay == loaigiay).ToList();
+            }
+
+            return View("Index", lst.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult Search(int? page, string search)
+        {
+            if (page == null) page = 1;
+            int pageSize = 9;
+            int pageNumber = (page ?? 1);
+
+            var lst = db.Giays.Include(x => x.ChiTietSizes.Select(y => y.Size)).Include(x => x.ChiTietMaus.Select(y => y.Mau)).Include(lg => lg.LoaiGiay).Include(nsx => nsx.NhaSanXuat).Where(tg => tg.Tengiay.Contains(search)).ToList();
+
+            return View("Index", lst.ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult Test()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,91 @@
+﻿@using Web_Ban_Giay_2.Models.Entities;
+
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Shopping_Cart cart = (Shopping_Cart)Session["cart"];
+    List<Item> lst = new List<Item>();
+    if (cart != null)
+    {
+        lst = cart.lst;
+    }
+
+    double totalMoney = cart.GetTotalMoney();
+    //double tprice = 0;
+}
+
+<div id="content-ct">
+
+    <!-- Tabs -->
+    <!-- <div class="tabs">
+        <ul>
+            <li><a href="#" class="active"><span>Safety Shoes</span></a></li>
+            <li><a href="#"><span>Sport Shoes</span></a></li>
+            <li><a href="#" class="red"><span>More Shoes</span></a></li>
+        </ul>
+    </div> -->
+    <!-- Tabs -->
+    <!-- Container -->
+    <div id="container-ct">
+
+        <div class="tabbed-left-contact">
+            <div class="left-checkout">
+                <h2>Thanh Toán</h2>
+                <h3>Thông tin khách hàng :</h3>
+                <p>Họ và tên *  </p><input placeholder="VD: Nguyễn Văn A" type="text" name="">
+                <p>Điện thoại * </p><input placeholder="VD: 0987654321" type="text" name="">
+                <p>Email *  </p><input placeholder="VD: dangchu@gmail..." type="text" name="">
+                <p>Địa chỉ chi tiết * </p><textarea placeholder="VD: số 12, ngõ 210, Hoàng Quốc Việt, Cầu Giấy,  Hà Nội"></textarea>
+                <p>Ghi chú </p><textarea></textarea>
+                <p>Phương thức thanh toán : </p>
+                <div class="pt-thanhtoan">
+                    <input type="radio" name="thanhtoan" value="" /><p>Thanh toán tại nhà</p>
+                    <input type="radio" name="thanhtoan" value="" /><p>Chuyển khoản ngân hàng</p>
+                </div>
+            </div>
+
+            <div class="btn-checkout"><button type="submit">Đặt hàng</button></div>
+        </div>
+
+        <div class="tabbed-right">
+            <div class="right-checkout">
+                <h2>Thông tin giỏ hàng</h2>
+                <table style="line-height: 30px;">
+                    <tr>
+                        <td style="width: 86px; font-weight: bold;">Tên sản phẩm</td>
+                        <td style="width: 56px; font-weight: bold;">Số lượng</td>
+                        <td style="font-weight: bold;">Giá bán</td>
+                    </tr>
+
+                    @{
+                        if (lst.Count() > 0)
+                        {
+
+                            foreach (var item in lst)
+                            {
+                                //tprice = tprice + item.amount * item.price;
+                                <tr style="line-height: 16px;">
+                                    <td>@item.name</td>
+                                    <td style="text-align: center;">@item.amount</td>
+                                    <td>@item.price.ToString("N0") đ</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <p style="margin-top: 30px;">Chưa có sản phẩm nào trong giỏ hàng</p>
+                        }
+                    }
+
+                </table>
+
+                <p style="font-size: 15px; font-weight: bold; margin-top: 15px;">Tổng tiền : <span style="font-size: 20px; color: #ff6f00;">@totalMoney.ToString("N0") đ</span></p>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Content -->
+
+</div>
+

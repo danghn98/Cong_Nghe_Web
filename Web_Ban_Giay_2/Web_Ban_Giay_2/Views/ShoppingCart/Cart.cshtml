@@ -31,7 +31,7 @@
 
                 <h2>Giỏ Hàng</h2>
 
-                <div style="float: right; margin-bottom: 6px;"><input style="padding: 5px;" type="submit" value="Cập nhật giỏ hàng" /></div>
+                <div style="float: right; margin-bottom: 6px;">@*<a href="/ShoppingCart/Update?id=@Model.Magiay&amount=@Model.amount">Sua</a>*@</div>
 
                 <table>
 
@@ -48,25 +48,31 @@
                     </tr>
 
                     @{
-
-                        foreach (var item in lst)
+                        if (lst.Count() > 0)
                         {
-                            var tprice = item.amount * item.price;
-                            <tr>
-                                <td>@item.name</td>
-                                <td>@item.color@*.FirstOrDefault()*@</td>
-                                <td>@item.size@*.FirstOrDefault()*@</td>
-                                <td><input type="number" value="@item.amount" /></td>
-                                <td>@item.price.ToString("N0") đ</td>
-                                <td>@tprice.ToString("N0") đ</td>
-                                <td style="padding: 0 5px;"><a href="/ShoppingCart/Remove/@item.id">Xoá</a></td>
-                                @*<td><a href="/ShoppingCart/Update?id=@Model.Magiay&amount=@Model.amount">Sua</a></td>*@
-                            </tr>
+                            foreach (var item in lst)
+                            {
+                                var tprice = item.amount * item.price;
+                                <tr>
+                                    <td>@item.name</td>
+                                    <td>@item.color@*.FirstOrDefault()*@</td>
+                                    <td>@item.size@*.FirstOrDefault()*@</td>
+                                    <td><input type="number" value="@item.amount" /></td>
+                                    <td>@item.price.ToString("N0") đ</td>
+                                    <td>@tprice.ToString("N0") đ</td>
+                                    <td style="padding: 0 5px;"><a href="/ShoppingCart/Remove/@item.id">Xoá</a></td>
+                                    @*<td><a href="/ShoppingCart/Update?id=@Model.Magiay&amount=@Model.amount">Sua</a></td>*@
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <p style="margin-top: 30px;">Chưa có sản phẩm nào trong giỏ hàng</p>
                         }
                     }
                 </table>
-
-                <div style="margin-top: 15px;"><input style="padding: 6px;" type="submit" value="Tiến hành thanh toán" /></div>
+                                                                                                                                                 
+                <div style="margin-top: 15px;"><a href="/Home/ThanhToan">Tiến hành thanh toán</a></div>
 
 
             </div>

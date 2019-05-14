@@ -3,6 +3,7 @@
 <!-- Thêm thư viện -->
 @model PagedList.IPagedList<Web_Ban_Giay_2.Models.Entities.Giay>
 @using PagedList.Mvc;
+@using Web_Ban_Giay_2.Models.Entities;
 <!-- Kết thúc-->
 
 @{
@@ -18,6 +19,53 @@
                 @Html.ActionLink("Thêm mới", "Create")
             </p>
         </button>
+    </div>
+    <div class="filter">
+        <div class="filter-left">
+            <form action="/SanPham/Filter" method="post">
+                <p>Thương hiệu : </p>
+                <select name="thuonghieu">
+                    <option value="0">Mặc định</option>
+                    @{
+                        using (var db = new ShopModel())
+                        {
+                            var lstNsx = db.NhaSanXuats.ToList();
+
+                            foreach (var i in lstNsx)
+                            {
+                                <option value="@i.Tennhasx">@i.Tennhasx</option>
+                            }
+                        }
+                    }
+                </select>
+
+                <p>Loại giày : </p>
+                <select name="loaigiay">
+                    <option value="0">Mặc định</option>
+                    @{
+                        using (var db = new ShopModel())
+                        {
+                            var lstLg = db.LoaiGiays.ToList();
+
+                            foreach (var i in lstLg)
+                            {
+                                <option value="@i.Tenloaigiay">@i.Tenloaigiay</option>
+                            }
+                        }
+                    }
+                </select>
+
+                <button type="submit">Lọc</button>
+            </form>
+        </div>
+
+
+        <div class="filter-right">
+            <form action="/SanPham/Search">
+                <input placeholder=" Nhập sản phẩm ..." type="text" name="search"/>
+                <button type="submit">Tìm kiếm</button>
+            </form>
+        </div>
     </div>
     <table class="table">
         <tr style="background: #efeded;">
@@ -46,7 +94,7 @@
                     @Html.DisplayFor(modelItem => item.Tengiay)
                 </td>
                 <td>
-                    @item.Giaban
+                    @item.Giaban.GetValueOrDefault(0).ToString("N0")
                 </td>
                 <td>
                     @foreach (var mau in item.ChiTietMaus)
@@ -86,3 +134,4 @@
         <!-- Kết thúc -->
     </div>
 </div>
+

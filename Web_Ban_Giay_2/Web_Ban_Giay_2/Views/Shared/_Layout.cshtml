@@ -40,7 +40,7 @@
 
             <!-- Header -->
             <div id="header">
-                <h1 id="logo"><a href="#">BEST SHOES</a></h1>
+                <h1 id="logo"><a href="/Home/Index">BEST SHOES</a></h1>
                 <div id="navigation">
                     <ul>
                         <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
@@ -81,22 +81,23 @@
             <!-- Search, etc -->
             <div class="options">
                 <div class="search">
-                    <form action="" method="post">
-                        <span class="field"><input type="text" class="blink" placeholder="Tìm sản phẩm" /></span>
-                        <input type="text" class="search-submit" value="GO" />
+                    <form action="/Home/Search" method="post">
+                        <span class="field"><input type="text" class="blink" placeholder="Tìm sản phẩm" name="search" /></span>
+                        <input type="submit" class="search-submit"   />
                     </form>
                 </div>
-                <span class="left"><a href="#">Tìm nâng cao</a></span>
+                @*<span class="left"><a href="#">Tìm nâng cao</a></span>*@
 
                 <div class="right">
                     <span class="cart">
-                        <a href="/ShoppingCart/Cart" class="cart-ico"><p>1</p></a>
-                        <strong>$ @totalMoney.ToString("N0")</strong>
+                        <p>@total</p>
+                        <a href="/ShoppingCart/Cart" class="cart-ico"></a>
+                        <strong>$@totalMoney.ToString("N0")</strong>
                     </span>
-                    <span class="left more-links">
+                    @*<span class="left more-links">
                         <a href="#">Thanh toán</a>
                         <a href="#">Giỏ hàng</a>
-                    </span>
+                    </span>*@
                 </div>
             </div>
             <!-- End Search, etc -->
