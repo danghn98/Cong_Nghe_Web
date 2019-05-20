@@ -1,0 +1,74 @@
+use WebBanGiay
+GO
+CREATE TABLE KHACHHANG(
+	MaKH char(15) primary key,
+	TenKH nvarchar(50),
+	TaiKhoan varchar(30),
+	MatKhau varchar(30),
+	Email varchar(30),
+	GioiTinh nvarchar(10) ,
+	NgaySinh datetime,
+	SDT int,
+	DiaChi nvarchar(50),
+	 
+)
+CREATE TABLE NHASANXUAT(
+	MaNhaSX varchar(20) primary key,
+	TenNhaSX nvarchar(50),
+	DiaChi nvarchar(50),
+	SDT varchar(20) ,
+	WebSite varchar(50)
+)
+
+CREATE TABLE NHACUNGCAP(
+	MaNhaCC varchar(20) primary key,
+	TenNhaCC nvarchar(50),
+	DiaChi nvarchar(50),
+	SDT varchar(20) ,
+	WebSite varchar(50)
+)
+
+CREATE TABLE LOAIGIAY(
+	MaLoaiGiay varchar(20) primary key,
+	TenLoaiGiay nvarchar(50),
+)
+
+CREATE TABLE GIAY(
+	MaGiay varchar(20) primary key,
+	TenGiay nvarchar(50),
+	SoLuongTon int,
+
+	MaNhaCC varchar(20) references NHACUNGCAP(MaNhaCC),
+	MaNhaSX varchar(20) references NHASANXUAT(MaNhaSX),
+	MaLoaiGiay varchar(20) references LOAIGIAY(MaLoaiGiay)
+)
+CREATE TABLE DONHANG(
+	MaDonHang varchar(20) primary key,
+	TenDonHang nvarchar(50),
+	NgayDat datetime,
+	NgayGiao datetime,
+	TinhTrangGiaoHang nvarchar(30),
+	DaThanhToan varchar(20),
+	MaKH char(15) references KHACHHANG(MaKH)
+)
+
+CREATE TABLE CHITIETDONHANG(
+	MaDonHang varchar(20),
+	MaGiay varchar(20),
+	SoLuong int,
+	DonGia decimal(18,2),
+	ThanhTien decimal(18,2)
+	primary key(MaDonHang,MaGiay)
+	
+)
+
+CREATE TABLE CHITIETSIZE(
+	MaSize varchar(20) primary key,
+	SoSize varchar(20),
+	MaGiay varchar(20) references GIAY(MaGiay)
+)
+
+CREATE TABLE CHITIETMAU(
+	MaMau varchar(20),
+	TenMau nvarchar(50)
+)
